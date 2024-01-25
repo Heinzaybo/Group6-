@@ -1,4 +1,3 @@
-**GitHub tutorial**
 # Software Engineering Methods
 Master Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/github/actions/workflow/status/Heinzaybo/Group6-/.github%2Fworkflows%2Fmain.yml?branch=develop&style=flat-square)
 
