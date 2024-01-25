@@ -7,4 +7,4 @@
 [![Releases](https://img.shields.io/github/release/Heinzaybo/Group6-/all.svg?style=flat-square)](https://github.com/Heinzaybo/Group6-/releases)
 
 # Software Engineering Methods
-![GitHub Workflow Status (develop)](https://img.shields.io/github/actions/workflow/status/40632009/Group6-/.github%2Fworkflows%2Fmain.yml?)
+![GitHub Workflow Status (develop)](https://img.shields.io/github/actions/workflow/status/Heinzaybo/Group6-/.github%2Fworkflows%2Fmain.yml?branch=develop&style=flat-square)
