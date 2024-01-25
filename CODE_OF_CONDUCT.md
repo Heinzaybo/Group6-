@@ -41,16 +41,18 @@ Rule requirement
 6.	If there is an argument with the team members, 2 marks will be lost.
 7.	If team members play games at work, 1 mask will be lost.
 8.	If team members are absent from the meeting, 1 mark will be lost.
-9.	If team members can’t contact in important times, 2 marks will be lost.  
+9.	If team members can’t contact in important times, 2 marks will be lost.
+
 Signed agreement
- 	Hein Zay Bo
 
- 	Min Min Han
+Hein Zay Bo
 
- 	Lwin Lwin Moon
+Min Min Han
 
- 	Saw J J Thar Khaing Shwe Ba
+Lwin Lwin Moon
 
- 	Ye Htet Kyaw
+Saw J J Thar Khaing Shwe Ba
 
- 	Htet Wai Yan Lin 
+Ye Htet Kyaw
+
+Htet Wai Yan Lin 
