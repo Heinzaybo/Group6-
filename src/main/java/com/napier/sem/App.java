@@ -76,7 +76,6 @@ public class App
 
     public ArrayList<Country> getCountries(String query)
     {
-
         try
         {
             // Create an SQL statement
@@ -95,6 +94,18 @@ public class App
             else if(query.equals("region")){
                 strSelect =
                         "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC";
+            }
+            else if(query.equals("continent_10")){
+                strSelect =
+                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Continent = 'Asia' ORDER BY Population DESC LIMIT 10 ";
+            }
+            else if(query.equals("world_10")){
+                strSelect =
+                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country ORDER BY Population DESC LIMIT 10";
+            }
+            else if(query.equals("region_10")){
+                strSelect =
+                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC LIMIT 10";
             }
             else {
                 strSelect =
@@ -151,8 +162,8 @@ public class App
         App a = new App();
         a.connect();
 
-        ArrayList<Country> countries = a.getCountries("region");
-        reportCountry(countries,"region");
+        ArrayList<Country> countries = a.getCountries("continent_10");
+        reportCountry(countries,"continent_10");
 
         a.disconnect();
     }
