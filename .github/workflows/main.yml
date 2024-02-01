@@ -13,23 +13,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-      - name: Setup network
-        run: |
-          docker network create --driver bridge se-methods
-          docker pull mongo
-          docker run -d --name mongo-dbserver --network se-methods mongo
       - name: Build with Maven
         run: mvn package
       - name: Build
-        run: docker build -t se_methods .
-      - name: Run image
-        run: docker run --network se-methods --name semcontainer se_methods
+        run: docker compose up
       - name: view logs
         run: docker logs semcontainer
-      - name: Copy Output
-        run: docker container cp sem_employees_app_1:./tmp/reports ./
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
-        with:
-          branch: reports # The branch the action should deploy to.
-          folder: reports # The folder we are copying

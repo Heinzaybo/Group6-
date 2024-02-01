@@ -74,15 +74,32 @@ public class App
         }
     }
 
-    public ArrayList<Country> getCountries()
+    public ArrayList<Country> getCountries(String query)
     {
+
         try
         {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
-            String strSelect =
-                    "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country ORDER BY Population DESC";
+            String strSelect;
+            if(query.equals("continent")){
+                System.out.println("Continent query is selected");
+                 strSelect =
+                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Continent = 'Asia' ORDER BY Population DESC";
+            }
+            else if (query.equals("world")){
+                 strSelect =
+                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country ORDER BY Population DESC";
+            }
+            else if(query.equals("region")){
+                strSelect =
+                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC";
+            }
+            else {
+                strSelect =
+                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country ORDER BY Population DESC";
+            }
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -105,19 +122,21 @@ public class App
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get employee details");
+            System.out.println("Failed to get Countries details");
             return null;
         }
     }
 
-    public static void  printCountryList(ArrayList<Country> countries,String filename){
-        StringBuilder sb = new StringBuilder(String.format("%-10s %-50s %-20s %-30s %-10s %-10s", "Code", "Name", "Continent", "Region", "Population", "Capital\r\n"));
+
+    public static void  reportCountry(ArrayList<Country> countries,String filename){
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%-10s %-50s %-20s %-30s %-10s %-10s\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         for (Country country : countries)
         {
-         sb.append(String.format("%-10s %-50s %-20s %-30s %-10s %-10s",
-                 country.getCode(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), country.getCapital() + "\n"));
+         sb.append(String.format("%-10s %-50s %-20s %-30s %-10s %-10s\n",
+                 country.getCode(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), country.getCapital()));
         }
-        System.out.print(sb);
+        System.out.println(sb.toString());
         try {
             new File("./reports/").mkdir();
             BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + filename)));
@@ -132,8 +151,8 @@ public class App
         App a = new App();
         a.connect();
 
-        ArrayList<Country> countries = a.getCountries();
-        printCountryList(countries,"Lee");
+        ArrayList<Country> countries = a.getCountries("region");
+        reportCountry(countries,"region");
 
         a.disconnect();
     }
