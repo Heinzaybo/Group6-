@@ -42,7 +42,6 @@ A forecaster request to see the population of a city and also want to access the
 
 ## EXTENSIONS
 
-*put here the extensions, one at a time, each referring to the step of the main scenario*
 
 There is no extension.
 
