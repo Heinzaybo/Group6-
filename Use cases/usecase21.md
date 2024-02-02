@@ -6,7 +6,7 @@
 As a forecaster, I want to organize the top 10 populated capital cities in the world where 10 is provided by the forecaster so that I can view top 10 populated capital cities in the world.
 ### Scope
 
-Organization Black-box
+Organizational Black-box
 
 ### Level
 
