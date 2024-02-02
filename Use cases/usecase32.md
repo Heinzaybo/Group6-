@@ -23,7 +23,7 @@ A forecaster can view the population of a city.
 
 ### Failed End Condition
 
-There are no extension.
+None
 
 ### Primary Actor
 
