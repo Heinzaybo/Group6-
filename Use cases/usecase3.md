@@ -1,4 +1,4 @@
-# USE CASE: 3 Organize all the countries in the continent organised by largest population to smallest.
+# USE CASE: 3 Organize all the countries in the region organised by largest population to smallest.
 ## CHARACTERISTIC INFORMATION
  
 ### Goal in Context
