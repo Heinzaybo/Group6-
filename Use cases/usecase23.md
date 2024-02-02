@@ -6,7 +6,7 @@
 As a forecaster, I want to organize the top 10 populated capital cities in a region where 10 is provided by the forecaster so that I can view top 10 populated capital cities in a region.
 ### Scope
 
-Organization Black-box
+Organizational Black-box
 
 ### Level
 
@@ -31,14 +31,11 @@ When forecaster request to view the top 10 populated capital cities in a region.
 
 ## MAIN SUCCESS SCENARIO
 
-*put here the steps of the scenario from trigger to goal delivery, and any cleanup after*
-
 1.  A forecaster request to organize by the top 10 populated capital cities in a region.
 2.  System takes the top 10 populated capital cities in a region from the database.
 3.  Then system output the result for organization. 
 ## EXTENSIONS
 
-*put here the extensions, one at a time, each referring to the step of the main scenario*
 There are no extensions.
 
 ## SUB-VARIATIONS
