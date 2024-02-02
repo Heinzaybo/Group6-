@@ -5,14 +5,16 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class App
 {
     /**
      * Connection to MySQL database.
      */
-    private Connection con = null;
+    private static Connection con = null;
 
     /**
      * Connect to the MySQL database.
@@ -148,14 +150,34 @@ public class App
 
     // Report Country
     public static void  reportCountry(ArrayList<Country> countries,String filename){
+
+
         //Creating String builder for formatting string
         StringBuilder sb = new StringBuilder();
         //Formatting string for header
-        sb.append(String.format("%-10s %-50s %-20s %-30s %-10s %-10s\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         for (Country country : countries)
         {
-         sb.append(String.format("%-10s %-50s %-20s %-30s %-10s %-10s\n",
-                 country.getCode(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), country.getCapital()));
+            String cname = null;
+            try {
+                Statement stmt = con.createStatement();
+                // Create string for SQL statement
+                String strSelect;
+                strSelect = "SELECT Name " + "FROM city WHERE ID ="+country.getCapital()+" ORDER BY Population DESC";
+                ResultSet rset = stmt.executeQuery(strSelect);
+                while (rset.next()){
+                    cname = rset.getString("Name");
+                }
+
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+                System.out.println("Failed to get cities details");
+
+            }
+            NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
+
+         sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n",
+                 country.getCode(), country.getName(), country.getContinent(), country.getRegion(), numberFormatter.format(country.getPopulation()), cname));
         }
         //displaying output to console
         System.out.println(sb.toString());
