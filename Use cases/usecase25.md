@@ -6,7 +6,7 @@
 As a forecaster, I want to organize the population of people, people living in cities, and people not living in cities in each region so that I can view detail population.
 ### Scope
 
-Organization Black-box
+Organizational Black-box
 
 ### Level
 
@@ -50,4 +50,4 @@ None
 
 ## SCHEDULE
 
-Due Date : 30/1/2024
+Due Date : 2/2/2024
