@@ -31,15 +31,11 @@ When forecaster can’t view top 10 populated capital cities in the world.
 
 ## MAIN SUCCESS SCENARIO
 
-*put here the steps of the scenario from trigger to goal delivery, and any cleanup after*
-
 1.  A forecaster request to organize by top 10 populated capital cities in the world.
 2.  System takes top 10 populated capital cities in the world from the database.
 3.  Then system output the result for organization.
 
 ## EXTENSIONS
-
-*put here the extensions, one at a time, each referring to the step of the main scenario*
 
 There is no extensions.
 
