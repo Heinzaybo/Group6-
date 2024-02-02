@@ -17,5 +17,3 @@ jobs:
         run: mvn package -DskipTests
       - name: Build
         run: docker compose up --abort-on-container-exit
-      - name: view logs
-        run: docker logs semcontainer

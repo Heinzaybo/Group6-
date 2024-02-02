@@ -82,31 +82,39 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect;
+
+            //getting countries in a continent from largest to smallest population
             if(query.equals("continent")){
                 System.out.println("Continent query is selected");
                  strSelect =
                         "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Continent = 'Asia' ORDER BY Population DESC";
             }
+            //getting countries in the whole world from largest to smallest population
             else if (query.equals("world")){
                  strSelect =
                         "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country ORDER BY Population DESC";
             }
+            //getting countries in a region from largest to smallest population
             else if(query.equals("region")){
                 strSelect =
                         "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC";
             }
+            //getting top 10 countries in a continent from largest to smallest population
             else if(query.equals("continent_10")){
                 strSelect =
                         "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Continent = 'Asia' ORDER BY Population DESC LIMIT 10 ";
             }
+            //getting top 10 countries in the whole world from largest to smallest population
             else if(query.equals("world_10")){
                 strSelect =
                         "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country ORDER BY Population DESC LIMIT 10";
             }
+            //getting top 10 countries in a region from largest to smallest population
             else if(query.equals("region_10")){
                 strSelect =
                         "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC LIMIT 10";
             }
+            //getting all countries in the whole world from largest to smallest population
             else {
                 strSelect =
                         "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country ORDER BY Population DESC";
@@ -138,16 +146,21 @@ public class App
         }
     }
 
-
+    // Report Country
     public static void  reportCountry(ArrayList<Country> countries,String filename){
+        //Creating String builder for formatting string
         StringBuilder sb = new StringBuilder();
+        //Formatting string for header
         sb.append(String.format("%-10s %-50s %-20s %-30s %-10s %-10s\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         for (Country country : countries)
         {
          sb.append(String.format("%-10s %-50s %-20s %-30s %-10s %-10s\n",
                  country.getCode(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), country.getCapital()));
         }
+        //displaying output to console
         System.out.println(sb.toString());
+
+        //Writing Report file
         try {
             new File("./reports/").mkdir();
             BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + filename)));
@@ -156,7 +169,7 @@ public class App
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        countries.forEach(country->System.out.println(country.getName()));
+
     }
     public static void main(String[] args) {
         App a = new App();
