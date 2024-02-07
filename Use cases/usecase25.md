@@ -1,4 +1,4 @@
-# USE CASE: 26 Organize the population of people in cities in each country.
+# USE CASE: 25 Organize the population of people in cities in each country.
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
