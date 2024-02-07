@@ -20,7 +20,8 @@ A forecaster can organize the top 10 populated cities in the district where 10 i
 
 ### Failed End Condition
 
-None
+The forecaster is unable to view the desired information or report.
+
 
 ### Primary Actor
 
