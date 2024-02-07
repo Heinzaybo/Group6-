@@ -38,6 +38,8 @@ When forecaster request to view the population of people in cities in each conti
 ## EXTENSIONS
  
 2. System can’t take the data from the database.
+
+    > Then the system output the empty list.
 ## SUB-VARIATIONS
 
 None
