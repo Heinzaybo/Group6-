@@ -1,4 +1,4 @@
-# USE CASE: 27 See the population of the world
+# USE CASE: 26 See the population of the world
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
