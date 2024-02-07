@@ -1,4 +1,4 @@
-# USE CASE: 22 Organize the top 10 populated capital cities in a continent.
+# USE CASE: 21 Organize the top 10 populated capital cities in a continent.
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
