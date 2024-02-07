@@ -1,4 +1,4 @@
-# USE CASE: 21 Organize the top 10 populated capital cities in the world.
+# USE CASE: 20 Organize the top 10 populated capital cities in the world.
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
