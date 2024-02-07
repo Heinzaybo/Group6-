@@ -39,6 +39,7 @@ When forecaster can’t view top 10 populated capital cities in the world.
  
 2. System can’t take the data from the database.
 
+    > Then the system output the empty list.
 ## SUB-VARIATIONS
 
 None
