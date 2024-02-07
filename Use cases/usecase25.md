@@ -21,7 +21,7 @@ System has access to each country database and take the population of people in 
 A forecaster can organize the population of people, people living in cities, and people not living in cities in each country.
 ### Failed End Condition
 
-There is no Failed End Condition.
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -38,8 +38,10 @@ A forecaster request to view the population of people in cities in each country.
 3.  Then system output the result for organization.
 
 ## EXTENSIONS
+ 
+2. System can’t take the data from the database.
 
-There is no extension.
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
