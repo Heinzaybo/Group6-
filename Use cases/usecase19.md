@@ -1,4 +1,4 @@
-# USE CASE: 20 Organize all the capital cities in a region
+# USE CASE: 19 Organize all the capital cities in a region
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
