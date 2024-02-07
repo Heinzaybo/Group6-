@@ -21,8 +21,7 @@ A forecaster can organize all the cities in the country organized by largest pop
 
 ### Failed End Condition
 
-None
-
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -40,7 +39,9 @@ A forecaster request to organize all the cities in a country organized by larges
 
 ## EXTENSIONS
 
-None
+2. System can’t take the data from the database.
+
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
