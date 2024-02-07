@@ -21,8 +21,7 @@ A forecaster can organize all the cities in the region organized by largest popu
 
 ### Failed End Condition
 
-None
-
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -43,7 +42,9 @@ by largest population to smallest.
 
 ## EXTENSIONS
 
-None
+2. System can’t take the data from the database.
+
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
