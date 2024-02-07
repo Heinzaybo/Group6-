@@ -1,4 +1,4 @@
-# USE CASE: 18 Organize all the capital cities in the world
+# USE CASE: 17 Organize all the capital cities in the world
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
