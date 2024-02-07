@@ -38,6 +38,9 @@ When forecaster request to view top 10 populated capital cities in a continent.
 ## EXTENSIONS
  
 2. System can’t take the data from the database.
+
+    > Then the system output the empty list.
+    
 ## SUB-VARIATIONS
 
 None
