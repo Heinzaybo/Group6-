@@ -23,7 +23,7 @@ A forecaster can view the population of a city.
 
 ### Failed End Condition
 
-There are no extension.
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -41,10 +41,10 @@ A forecaster request to see the population of a city and also want to access the
 3.  Then system output the result for organization.
 
 ## EXTENSIONS
+ 
+2. System can’t take the data from the database.
 
-*put here the extensions, one at a time, each referring to the step of the main scenario*
-
-There is no extension.
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
