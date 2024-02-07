@@ -20,7 +20,7 @@ System has access to world database and take the top 10 populated capital cities
 A forecaster can organize the top 10 populated capital cities in the world where 10 is provided by the forecaster.
 ### Failed End Condition
 
-There is no failed end condition.
+The forecaster is unable to view the desired information or report.
 ### Primary Actor
 
 A forecaster
@@ -36,8 +36,8 @@ When forecaster can’t view top 10 populated capital cities in the world.
 3.  Then system output the result for organization.
 
 ## EXTENSIONS
-
-There is no extensions.
+ 
+2. System can’t take the data from the database.
 
 ## SUB-VARIATIONS
 
