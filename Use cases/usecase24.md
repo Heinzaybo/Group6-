@@ -41,6 +41,8 @@ A forecaster request to view the population of people in cities in each region.
  
 2. System can’t take the data from the database.
 
+   ​> Then the system output the empty list.
+
 1. In the database, population category is not included.
   > Find the database containing information on population categories.
 
