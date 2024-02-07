@@ -23,7 +23,7 @@ A forecaster can provide the number of people who speak chinese,english,hindi,sp
 
 ### Failed End Condition
 
-None
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
