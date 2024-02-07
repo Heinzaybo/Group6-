@@ -1,4 +1,4 @@
-# USE CASE: 24 Organize the population of people in cities in each continent.
+# USE CASE: 23 Organize the population of people in cities in each continent.
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
