@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.sql.*;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
 
 public class App
@@ -76,54 +78,138 @@ public class App
         }
     }
 
-    public ArrayList<Country> getCountries(String query)
+    public void getCountriesWorld(){
+        try{
+            // Create string for SQL statement
+            String strSelect;
+            strSelect = "SELECT Code, Name, Continent, Region, Population, Capital FROM country ORDER BY Population DESC";
+            reportCountry(getCountries(strSelect),"Countries_in_World");
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public void getCountriesWorld10(){
+        try{
+            // Create string for SQL statement
+            String strSelect;
+            strSelect = "SELECT Code, Name, Continent, Region, Population, Capital FROM country ORDER BY Population DESC LIMIT 10";
+            reportCountry(getCountries(strSelect),"Countries_in_World");
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public ArrayList<Country> getCountriesContinent() {
+        return getCountriesContinent(true); // Delegate to the overloaded method with default parameter value
+    }
+    public ArrayList<Country> getCountriesContinent(boolean isOutput){
+        try{
+            // Create string for SQL statement
+            String strSelect;
+            strSelect = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Continent = 'Asia' ORDER BY Population DESC";
+            ArrayList<Country> countries = getCountries(strSelect);
+            if(isOutput){
+                reportCountry(countries,"Countries_in_Continent");
+            }
+            return countries;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    public void getCountriesContinent10(){
+        try{
+            // Create string for SQL statement
+            String strSelect;
+            strSelect = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Continent = 'Asia' ORDER BY Population DESC LIMIT 10 ";
+            reportCountry(getCountries(strSelect),"Countries_in_World");
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public ArrayList<Country> getCountriesRegion(boolean isOutput){
+        try{
+            // Create string for SQL statement
+            String strSelect;
+            strSelect = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC";
+            ArrayList<Country> countries = getCountries(strSelect);
+            if(isOutput){
+                reportCountry(countries,"Countries_in_World");
+            }
+            return countries;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public void getCountriesRegion10(){
+        try{
+            // Create string for SQL statement
+            String strSelect;
+            strSelect = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC LIMIT 10 ";
+            reportCountry(getCountries(strSelect),"Countries_in_World");
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void  reportCountry(ArrayList<Country> countries,String filename){
+
+
+        //Creating String builder for formatting string
+        StringBuilder sb = new StringBuilder();
+        //Formatting string for header
+        sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        for (Country country : countries)
+        {
+            String cname = null;
+            try {
+                Statement stmt = con.createStatement();
+                // Create string for SQL statement
+                String strSelect;
+                strSelect = "SELECT Name FROM city WHERE ID ="+country.getCapital()+" ORDER BY Population DESC";
+                ResultSet rset = stmt.executeQuery(strSelect);
+                while (rset.next()){
+                    cname = rset.getString("Name");
+                }
+
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+                System.out.println("Failed to get cities details");
+
+            }
+            NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
+
+            sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n",
+                    country.getCode(), country.getName(), country.getContinent(), country.getRegion(), numberFormatter.format(country.getPopulation()), cname));
+        }
+        //displaying output to console
+        System.out.println(sb.toString());
+
+        //Writing Report file
+        try {
+            new File("./reports/").mkdir();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + filename)));
+            writer.write(sb.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public ArrayList<Country> getCountries(String strSelect)
     {
         try
         {
-            // Create an SQL statement
             Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect;
-
-            //getting countries in a continent from largest to smallest population
-            if(query.equals("continent")){
-                System.out.println("Continent query is selected");
-                 strSelect =
-                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Continent = 'Asia' ORDER BY Population DESC";
-            }
-            //getting countries in the whole world from largest to smallest population
-            else if (query.equals("world")){
-                 strSelect =
-                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country ORDER BY Population DESC";
-            }
-            //getting countries in a region from largest to smallest population
-            else if(query.equals("region")){
-                strSelect =
-                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC";
-            }
-            //getting top 10 countries in a continent from largest to smallest population
-            else if(query.equals("continent_10")){
-                strSelect =
-                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Continent = 'Asia' ORDER BY Population DESC LIMIT 10 ";
-            }
-            //getting top 10 countries in the whole world from largest to smallest population
-            else if(query.equals("world_10")){
-                strSelect =
-                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country ORDER BY Population DESC LIMIT 10";
-            }
-            //getting top 10 countries in a region from largest to smallest population
-            else if(query.equals("region_10")){
-                strSelect =
-                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC LIMIT 10";
-            }
-            //getting all countries in the whole world from largest to smallest population
-            else {
-                strSelect =
-                        "SELECT Code, Name, Continent, Region, Population, Capital " + "FROM country ORDER BY Population DESC";
-            }
-            // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-
             // Return new employee if valid.
             // Check one is returned
             ArrayList<Country> countries = new ArrayList<Country>();
@@ -148,58 +234,12 @@ public class App
         }
     }
 
-    // Report Country
-    public static void  reportCountry(ArrayList<Country> countries,String filename){
 
 
-        //Creating String builder for formatting string
-        StringBuilder sb = new StringBuilder();
-        //Formatting string for header
-        sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
-        for (Country country : countries)
-        {
-            String cname = null;
-            try {
-                Statement stmt = con.createStatement();
-                // Create string for SQL statement
-                String strSelect;
-                strSelect = "SELECT Name " + "FROM city WHERE ID ="+country.getCapital()+" ORDER BY Population DESC";
-                ResultSet rset = stmt.executeQuery(strSelect);
-                while (rset.next()){
-                    cname = rset.getString("Name");
-                }
-
-            }catch (Exception e){
-                System.out.println(e.getMessage());
-                System.out.println("Failed to get cities details");
-
-            }
-            NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
-
-         sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n",
-                 country.getCode(), country.getName(), country.getContinent(), country.getRegion(), numberFormatter.format(country.getPopulation()), cname));
-        }
-        //displaying output to console
-        System.out.println(sb.toString());
-
-        //Writing Report file
-        try {
-            new File("./reports/").mkdir();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + filename)));
-            writer.write(sb.toString());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
     public static void main(String[] args) {
         App a = new App();
         a.connect();
-
-        ArrayList<Country> countries = a.getCountries("continent_10");
-        reportCountry(countries,"continent_10");
-
+        a.getCountriesContinent();
         a.disconnect();
     }
 
