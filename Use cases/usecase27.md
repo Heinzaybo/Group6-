@@ -23,7 +23,7 @@ A forecaster can view the population of a continent.
 
 ### Failed End Condition
 
-There is no Failed End Condition.
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -42,8 +42,10 @@ A forecaster request to view population of a continent in the world.
 
 
 ## EXTENSIONS
+ 
+2. System can’t take the data from the database.
 
-There is no extension.
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
