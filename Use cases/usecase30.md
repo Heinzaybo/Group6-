@@ -42,8 +42,10 @@ A forecaster request to view the population of a district and also want to acces
 3.  Then system output the result for organization.
 
 ## EXTENSIONS
+ 
+2. System can’t take the data from the database.
 
-There are no extensions.
+    > Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
