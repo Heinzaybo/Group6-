@@ -1,4 +1,4 @@
-# USE CASE: 19 Organize all the capital cities in a continent
+# USE CASE: 18 Organize all the capital cities in a continent
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
