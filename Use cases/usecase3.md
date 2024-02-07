@@ -23,7 +23,7 @@ A forecaster can view the countries populations in a region by largest to smalle
  
 ### Failed End Condition
  
-None
+The forecaster is unable to view the desired information or report.
  
 ### Primary Actor
  
@@ -31,7 +31,7 @@ A forecaster
  
 ### Trigger
  
-A forecaster request to organize all the countries in a region by largest to smallest population.
+A forecaster has been requested to fulfill the task by the client.
  
 ## MAIN SUCCESS SCENARIO
  
@@ -42,7 +42,11 @@ A forecaster request to organize all the countries in a region by largest to sma
  
 ## EXTENSIONS
  
-None
+2. The system can’t take the data from the database.
+
+   ​> Then the system outputs the empty list.
+
+
  
 ## SUB-VARIATIONS
  
