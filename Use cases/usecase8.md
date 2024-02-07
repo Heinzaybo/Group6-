@@ -22,7 +22,7 @@ A forecaster can organize all the cities in the continent organized by largest p
 
 ### Failed End Condition
 
-None
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -40,7 +40,9 @@ A forecaster request to organize all the cities in a continent organized by larg
 
 ## EXTENSIONS
 
-None
+2. System can’t take the data from the database.
+
+      ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
