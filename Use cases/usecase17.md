@@ -22,14 +22,14 @@ A forecaster can organize the capital cities in the world by largest population 
 
 ### Failed End Condition
 
-There is no failed end condition.
+The forecaster is unable to view the desired information or report.
 ### Primary Actor
 
 A forecaster
 
 ### Trigger
 
-A forecaster request to view all the capital cities in the world by largest population to smallest.
+A forecaster has been requested to fulfill the task by the client.
 
 ## MAIN SUCCESS SCENARIO
 
@@ -38,8 +38,8 @@ A forecaster request to view all the capital cities in the world by largest popu
 3.  Then system output the result for organization.
 
 ## EXTENSIONS
-
-There is no extension.
+ 
+2. System can’t take the data from the database.
 
 ## SUB-VARIATIONS
 
