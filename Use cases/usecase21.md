@@ -20,7 +20,7 @@ In database, organize the top 10 populated capital cities in a continent where 1
 A forecaster can organize the top 10 populated capital cities in a continent where 10 is provided by the forecaster.
 ### Failed End Condition
 
-There is no failed end condition.
+The forecaster is unable to view the desired information or report.
 ### Primary Actor
 
 A forecaster
@@ -36,9 +36,8 @@ When forecaster request to view top 10 populated capital cities in a continent.
 3.  Then system output the result for organization.
 
 ## EXTENSIONS
-
-There is no extension.
-
+ 
+2. System can’t take the data from the database.
 ## SUB-VARIATIONS
 
 None
