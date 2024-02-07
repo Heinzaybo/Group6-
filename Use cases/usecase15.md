@@ -39,7 +39,9 @@ A forecaster request to organize the top 10 populated cities in a country.
 
 ## EXTENSIONS
 
-None
+2. System can’t take the data from the database.
+
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
