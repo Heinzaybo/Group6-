@@ -1,4 +1,4 @@
-# USE CASE: 23 Organize the top 10 populated capital cities in a region.
+# USE CASE: 22 Organize the top 10 populated capital cities in a region.
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
