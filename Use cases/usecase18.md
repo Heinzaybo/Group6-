@@ -41,6 +41,7 @@ A forecaster has been requested to fulfill the task by the client.
  
 2. System can’t take the data from the database.
 
+    > Then the system output the empty list.
 ## SUB-VARIATIONS
 
 None
