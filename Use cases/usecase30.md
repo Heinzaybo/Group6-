@@ -1,4 +1,4 @@
-# USE CASE: 31 See the population of a district
+# USE CASE: 30 See the population of a district
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
