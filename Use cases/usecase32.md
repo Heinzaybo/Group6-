@@ -40,9 +40,10 @@ A forecaster request to provide the number of people who speak chinese,english,h
 3.  Then system output the result for organization.
 
 ## EXTENSIONS
+ 
+2. System can’t take the data from the database.
 
-
-There is no extension.
+    > Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
