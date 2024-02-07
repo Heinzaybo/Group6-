@@ -1,4 +1,4 @@
-# USE CASE: 28 See the population of a continent.
+# USE CASE: 27 See the population of a continent.
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
