@@ -1,4 +1,4 @@
-# USE CASE: 30 See the population of a country
+# USE CASE: 29 See the population of a country
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
