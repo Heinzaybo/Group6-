@@ -23,7 +23,7 @@ A forecaster can view the population of a district.
 
 ### Failed End Condition
 
-There is no failed end condition.
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
