@@ -1,4 +1,4 @@
-# USE CASE: 29 See the population of a region
+# USE CASE: 28 See the population of a region
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
