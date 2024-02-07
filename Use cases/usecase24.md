@@ -21,7 +21,7 @@ System has access to each region database and take the population of people, peo
 A forecaster can organize the population of people, people living in cities, and people not living in cities in each region.
 ### Failed End Condition
 
-There is not Failed End Condition.
+The forecaster is unable to view the desired information or report.
 ### Primary Actor
 
 A forecaster
@@ -38,8 +38,8 @@ A forecaster request to view the population of people in cities in each region.
 
 
 ## EXTENSIONS
-
-There is no extensions.
+ 
+2. System can’t take the data from the database.
 
 1. In the database, population category is not included.
   > Find the database containing information on population categories.
