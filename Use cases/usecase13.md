@@ -21,7 +21,7 @@ A forecaster can organize the top 10 populated cities in the continent where 10 
 
 ### Failed End Condition
 
-None
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -39,7 +39,9 @@ A forecaster request to organize the top 10 populated cities in a continent.
 
 ## EXTENSIONS
 
-None
+2. System can’t take the data from the database.
+
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
