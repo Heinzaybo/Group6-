@@ -31,7 +31,7 @@ When forecaster request to view the population of people in cities in each conti
 
 ## MAIN SUCCESS SCENARIO
 
-1.   A forecaster request to organize by the population of people, people living in cities, and people not living in cities in each continent.
+1.  A forecaster request to organize by the population of people, people living in cities, and people not living in cities in each continent.
 2.  System takes the population of the world from the database.
 3.  Then system output the result for organization.
 

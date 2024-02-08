@@ -32,7 +32,7 @@ A forecaster
 ### Trigger
 
 A forecaster request to view the country populations of the world.
- forecaster want to see the population of a country and also want to access the information of population easily.
+ Forecaster want to see the population of a country and also want to access the information of population easily.
 
 ## MAIN SUCCESS SCENARIO
 
