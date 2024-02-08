@@ -40,7 +40,6 @@ A forecaster request to view population of a continent in the world.
 2.  System takes the population of the continents in the world.
 3.  Then system output the result for organization.
 
-
 ## EXTENSIONS
  
 2. System can’t take the data from the database.

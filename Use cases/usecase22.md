@@ -33,7 +33,8 @@ When forecaster request to view the top 10 populated capital cities in a region.
 
 1.  A forecaster request to organize by the top 10 populated capital cities in a region.
 2.  System takes the top 10 populated capital cities in a region from the database.
-3.  Then system output the result for organization. 
+3.  Then system output the result for organization.
+
 ## EXTENSIONS
  
 2. System can’t take the data from the database.
