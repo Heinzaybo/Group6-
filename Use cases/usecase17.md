@@ -34,8 +34,8 @@ A forecaster has been requested to fulfill the task by the client.
 ## MAIN SUCCESS SCENARIO
 
 1. The forecaster request to organize the capital cities by the largest to smallest population.
-2.  System takes the capital cities of the world from the database and organize the largest to smallest population.
-3.  Then system output the result for organization.
+2. System takes the capital cities of the world from the database and organize the largest to smallest population.
+3. Then system output the result for organization.
 
 ## EXTENSIONS
  

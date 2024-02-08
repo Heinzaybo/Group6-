@@ -36,7 +36,7 @@ A forecaster request to organize all-top 10 populated cities in a district.
 
 1.      A forecaster request to organize all-top 10 populated cities in a district.
 2.      System takes the population of the world from the database and organize all-top 10 populated cities in a district.
- 3.      Then system output the result for organization.
+3.      Then system output the result for organization.
 
 ## EXTENSIONS
 
