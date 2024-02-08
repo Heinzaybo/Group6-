@@ -34,8 +34,7 @@ A forecaster request to view all the cities in a region.
 
 ## MAIN SUCCESS SCENARIO
 
-1.      A forecaster request to organize all the cities in a region organized
-by largest population to smallest.
+1.      A forecaster request to organize all the cities in a region organized by largest population to smallest.
 2.      System takes the cities in a region of the world from the database and organize by largest population to smallest.
 3.      Then system output the result for organization.
 

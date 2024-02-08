@@ -38,8 +38,7 @@ A forecaster has been requested to fulfill the task by the client.
 1. A forecaster request to organize by largest population to smallest countries population in a region of the world.
 2. System takes the population in a region from the database and organize the largest to smallest population.
 3. Then system output the result for organization.
- 
- 
+
 ## EXTENSIONS
  
 2. The system can’t take the data from the database.

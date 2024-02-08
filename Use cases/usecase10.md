@@ -35,7 +35,7 @@ A forecaster request to organize all the cities in a country organized by larges
 
 1.      A forecaster request to organize all the cities in a country.
 2.      System takes the population of the cities in a country from the database and organized by largest population to smallest.
- 3.      Then system output the result for organization.
+3.      Then system output the result for organization.
 
 ## EXTENSIONS
 
