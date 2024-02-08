@@ -36,7 +36,6 @@ A forecaster request to view the population of people in cities in each region.
 2.  System takes the population of people in cities in each region.
 3.  Then system output the result for organization.
 
-
 ## EXTENSIONS
  
 2. System can’t take the data from the database.

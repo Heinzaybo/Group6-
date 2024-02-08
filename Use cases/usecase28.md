@@ -39,7 +39,6 @@ A forecaster request to view the region populations of the world.
 2.  System takes the region populations of the world.
 3.  Then system output the result for organization.
 
-
 ## EXTENSIONS
  
 2. System can’t take the data from the database.
