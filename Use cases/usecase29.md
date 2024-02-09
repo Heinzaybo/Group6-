@@ -1,9 +1,9 @@
-# USE CASE: 29 See the population of a region
+# USE CASE: 29 See the population of a country
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As a forecaster, I want to see the population of a region so that I can easily access the population information.
+As a forecaster, I want to see the population of a country so that I can easily access the population information.
 
 ### Scope
 
@@ -15,15 +15,15 @@ Primary
 
 ### Preconditions
 
-System has access region populations of the world.
+System has access the populations of the country of the world.
 
 ### Success End Condition
 
-A forecaster can view the population of a region of the word.
+A forecaster can view the population of a country.
 
 ### Failed End Condition
 
-There is no Failed End Condition.
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -31,18 +31,20 @@ A forecaster
 
 ### Trigger
 
-A forecaster request to view the region populations of the world.
+A forecaster request to view the country populations of the world.
+ Forecaster want to see the population of a country and also want to access the information of population easily.
 
 ## MAIN SUCCESS SCENARIO
 
-1.  A forecaster request to organize the region populations of the world.
-2.  System takes the region populations of the world.
+1.  A forecaster request to organize the country populations of the world.
+2.  System takes the country populations of the world.
 3.  Then system output the result for organization.
 
-
 ## EXTENSIONS
+ 
+2. System can’t take the data from the database.
 
-There is no extensions.
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
@@ -50,4 +52,4 @@ None
 
 ## SCHEDULE
 
-Due Date : 2/2/2024
+Due Date : 30/1/2024

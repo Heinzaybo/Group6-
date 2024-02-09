@@ -23,7 +23,7 @@ A forecaster can view the countries populations in a region which is top 10 popu
 
 ### Failed End Condition
 
-None
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -31,7 +31,7 @@ A forecaster
 
 ### Trigger
 
-A forecaster request to view the all-top 10 populated countries in a region.
+A forecaster has been requested to fulfill the task by the client.
 
 ## MAIN SUCCESS SCENARIO
 
@@ -42,7 +42,9 @@ A forecaster request to view the all-top 10 populated countries in a region.
 
 ## EXTENSIONS
 
-None
+2. System can’t take the data from the database.
+
+​    > Then the system output the empty list.
 
 ## SUB-VARIATIONS
 

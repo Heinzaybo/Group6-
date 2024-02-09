@@ -1,10 +1,9 @@
-# USE CASE: 17 Organize the top 10 populated cities in a district
+# USE CASE: 17 Organize all the capital cities in the world
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As a forecaster I want to organize the top 10 populated cities in a district where 10 is provided by the forecaster so that I can view the top 10 populated cities in a district.
-
+As a forecaster, I want to organize all the capital cities in the world by largest population to smallest so that I can view all the capital cities in the world.
 ### Scope
 
 Organizational Black-box
@@ -15,33 +14,34 @@ Primary
 
 ### Preconditions
 
-System has access to world database and take top 10 populated cities in a district.
+System has access to world database and take all the capital cities in the world.
+
 ### Success End Condition
 
-A forecaster can organize the top 10 populated cities in a district where 10 is provided by the forecaster.
+A forecaster can organize the capital cities in the world by largest population to smallest.
 
 ### Failed End Condition
 
-None
+The forecaster is unable to view the desired information or report.
 ### Primary Actor
 
 A forecaster
 
 ### Trigger
 
-When forecaster request to view the top 10 populated cities in a district.
+A forecaster has been requested to fulfill the task by the client.
 
 ## MAIN SUCCESS SCENARIO
 
-
-1.  A forecaster request to organize the top 10 populated cities in a district where 10 is provided by the forecaster.
-2.  System takes the top 10 population of the world from the database and organize.
-3.  Then system output the result for organization.
+1. The forecaster request to organize the capital cities by the largest to smallest population.
+2. System takes the capital cities of the world from the database and organize the largest to smallest population.
+3. Then system output the result for organization.
 
 ## EXTENSIONS
+ 
+2. System can’t take the data from the database.
 
-There is no extension.
-
+    > Then the system output the empty list.
 ## SUB-VARIATIONS
 
 None
@@ -49,4 +49,3 @@ None
 ## SCHEDULE
 
 Due Date : 2/2/2024
-

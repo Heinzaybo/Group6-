@@ -1,4 +1,4 @@
-# USE CASE: 3 Organize all the countries in the continent organised by largest population to smallest.
+# USE CASE: 3 Organize all the countries in the region organised by largest population to smallest.
 ## CHARACTERISTIC INFORMATION
  
 ### Goal in Context
@@ -23,7 +23,7 @@ A forecaster can view the countries populations in a region by largest to smalle
  
 ### Failed End Condition
  
-None
+The forecaster is unable to view the desired information or report.
  
 ### Primary Actor
  
@@ -31,18 +31,21 @@ A forecaster
  
 ### Trigger
  
-A forecaster request to organize all the countries in a region by largest to smallest population.
+A forecaster has been requested to fulfill the task by the client.
  
 ## MAIN SUCCESS SCENARIO
  
 1. A forecaster request to organize by largest population to smallest countries population in a region of the world.
 2. System takes the population in a region from the database and organize the largest to smallest population.
 3. Then system output the result for organization.
- 
- 
+
 ## EXTENSIONS
  
-None
+2. The system can’t take the data from the database.
+
+   ​> Then the system outputs the empty list.
+
+
  
 ## SUB-VARIATIONS
  

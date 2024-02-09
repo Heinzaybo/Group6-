@@ -21,8 +21,7 @@ A forecaster can organize all the cities in the country organized by largest pop
 
 ### Failed End Condition
 
-None
-
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -36,11 +35,13 @@ A forecaster request to organize all the cities in a country organized by larges
 
 1.      A forecaster request to organize all the cities in a country.
 2.      System takes the population of the cities in a country from the database and organized by largest population to smallest.
- 3.      Then system output the result for organization.
+3.      Then system output the result for organization.
 
 ## EXTENSIONS
 
-None
+2. System can’t take the data from the database.
+
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 

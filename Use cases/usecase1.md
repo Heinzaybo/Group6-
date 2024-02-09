@@ -3,7 +3,7 @@
  
 ### Goal in Context
  
-As a forecaster I want to organise all the countries in the world organised by largest population to smallest so that I can view all the countries in the world.
+As a forecaster, I want to organise all the countries in the world organised by largest population to smallest so that I can view all the countries in the world.
  
 ### Scope
  
@@ -15,15 +15,15 @@ Primary
  
 ### Preconditions
  
-System has access to world database and take the countries populations of the world.
+The system has access to world database and take the countries populations of the world.
  
 ### Success End Condition
  
-A forecaster can view the population of the countries from the largest to smallest.
+A forecaster can view the population of the countries from the largest to the smallest.
  
 ### Failed End Condition
- 
-A forecaster can’t view easily as he expected and he can’t view the countries populations of the world.
+
+The forecaster is unable to view the desired information or report.
  
 ### Primary Actor
  
@@ -31,7 +31,7 @@ A forecaster
  
 ### Trigger
  
-A forecaster request to view the countries populations of the world.
+A forecaster has been requested to fulfill the task by the client.
  
 ## MAIN SUCCESS SCENARIO
  
@@ -42,7 +42,8 @@ A forecaster request to view the countries populations of the world.
 ## EXTENSIONS
  
 2. System can’t take the data from the database.
-​> Then the system output the empty list.
+
+   ​> Then the system output the empty list.
 ## SUB-VARIATIONS
  
 None

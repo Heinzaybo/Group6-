@@ -21,7 +21,7 @@ A forecaster can organize the top 10 populated cities in the region where 10 is 
 
 ### Failed End Condition
 
-None
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -40,7 +40,9 @@ A forecaster request to organize the top 10 populated cities in the region.
 
 ## EXTENSIONS
 
-None
+2. System can’t take the data from the database.
+
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 

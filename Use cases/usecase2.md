@@ -24,7 +24,7 @@ A forecaster can view the countries populations in a continent of the world.
  
 ### Failed End Condition
  
-There is no failure.
+The forecaster is unable to view the desired information or report.
  
 ### Primary Actor
  
@@ -32,18 +32,19 @@ A forecaster
  
 ### Trigger
  
-A forecaster request to organize all the countries in the continent by largest population to smallest.
+A forecaster has been requested to fulfill the task by the client.
  
 ## MAIN SUCCESS SCENARIO
  
 1. A forecaster request to organize by largest population to smallest countries population in a continent of the world.
 2. System takes the population in a continent from the database and organize the largest to smallest population.
 3. Then system output the result for organization.
- 
- 
+
 ## EXTENSIONS
 
-none
+2. System can’t take the data from the database.
+
+​    > Then the system output the empty list.
 
 ## SUB-VARIATIONS
  

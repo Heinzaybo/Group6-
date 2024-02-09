@@ -1,9 +1,9 @@
-# USE CASE: 31 See the population of a district
+# USE CASE: 31 See the population of a city
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As a forecaster, I want to see the population of a district so that I can easily access the population information.
+As a forecaster, I want to see the population of a city so that I can easily access the population information.
 
 ### Scope
 
@@ -15,15 +15,15 @@ Primary
 
 ### Preconditions
 
-System has access to world database and take the population of a district.
+System has access to world database and take the population of a city.
 
 ### Success End Condition
 
-A forecaster can view the population of a district.
+A forecaster can view the population of a city.
 
 ### Failed End Condition
 
-There is no failed end condition.
+The forecaster is unable to view the desired information or report.
 
 ### Primary Actor
 
@@ -31,19 +31,20 @@ A forecaster
 
 ### Trigger
 
-A forecaster request to view the population of a district and also want to access the information of population easily.
+A forecaster request to see the population of a city and also want to access the information of population easily.
 
 ## MAIN SUCCESS SCENARIO
 
 *put here the steps of the scenario from trigger to goal delivery, and any cleanup after*
-
-1.  A forecaster request to view the population of a district.
-2.  System takes the population of the district from the database.
+1.  A forecaster request to view the population of a city.
+2.  System takes the population of a city from the database.
 3.  Then system output the result for organization.
 
 ## EXTENSIONS
+ 
+2. System can’t take the data from the database.
 
-There are no extensions.
+   ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
 
@@ -51,4 +52,4 @@ None
 
 ## SCHEDULE
 
-Due Date: 2/2/2024
+Due Date : 30/1/2024

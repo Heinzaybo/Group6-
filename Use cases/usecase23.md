@@ -1,12 +1,12 @@
-# USE CASE: 23 Organize the top 10 populated capital cities in a region.
+# USE CASE: 23 Organize the population of people in cities in each continent.
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As a forecaster, I want to organize the top 10 populated capital cities in a region where 10 is provided by the forecaster so that I can view top 10 populated capital cities in a region.
+As a forecaster, I want to organize the population of people, people living in cities, and people not living in cities in each continent so that I can view detail population.
 ### Scope
 
-Organizational Black-box
+Organization Black-box
 
 ### Level
 
@@ -14,35 +14,36 @@ Primary
 
 ### Preconditions
 
-System has access to world database and take the top 10 populated capital cities in a region where 10 is provided by the forecaster.
+System has access to world database and take the population of people, people living in cities, and people not living in cities in each continent. 
 ### Success End Condition
 
-A forecaster can organize the top 10 populated capital cities in a region where 10 is provided by the user.
+A forecaster can organize the population of people, people living in cities, and people not living in cities in each continent.
 ### Failed End Condition
 
-There is no failed end condition.
+The forecaster is unable to view the desired information or report.
 ### Primary Actor
 
 A forecaster
 
 ### Trigger
 
-When forecaster request to view the top 10 populated capital cities in a region.
+When forecaster request to view the population of people in cities in each continent.
 
 ## MAIN SUCCESS SCENARIO
 
-1.  A forecaster request to organize by the top 10 populated capital cities in a region.
-2.  System takes the top 10 populated capital cities in a region from the database.
-3.  Then system output the result for organization. 
+1.  A forecaster request to organize by the population of people, people living in cities, and people not living in cities in each continent.
+2.  System takes the population of the world from the database.
+3.  Then system output the result for organization.
+
 ## EXTENSIONS
+ 
+2. System can’t take the data from the database.
 
-There are no extensions.
-
+    > Then the system output the empty list.
 ## SUB-VARIATIONS
 
 None
 
 ## SCHEDULE
 
-Due Date :2/2/2024
-
+Due Date : 2/2/2024

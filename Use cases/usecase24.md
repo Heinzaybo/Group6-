@@ -1,12 +1,12 @@
-# USE CASE: 24 Organize the population of people in cities in each continent.
+# USE CASE: 24 Organize the population of people in cities in each region.
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As a forecaster, I want to organize the population of people, people living in cities, and people not living in cities in each continent so that I can view detail population.
+As a forecaster, I want to organize the population of people, people living in cities, and people not living in cities in each region so that I can view detail population.
 ### Scope
 
-Organization Black-box
+Organizational Black-box
 
 ### Level
 
@@ -14,30 +14,36 @@ Primary
 
 ### Preconditions
 
-System has access to world database and take the population of people, people living in cities, and people not living in cities in each continent. 
+System has access to each region database and take the population of people, people living in cities, and people not living in cities in each region.
+
 ### Success End Condition
 
-A forecaster can organize the population of people, people living in cities, and people not living in cities in each continent.
+A forecaster can organize the population of people, people living in cities, and people not living in cities in each region.
 ### Failed End Condition
 
-There is no failed end condition.
+The forecaster is unable to view the desired information or report.
 ### Primary Actor
 
 A forecaster
 
 ### Trigger
 
-When forecaster request to view the population of people in cities in each continent.
+A forecaster request to view the population of people in cities in each region.
 
 ## MAIN SUCCESS SCENARIO
 
-1.   A forecaster request to organize by the population of people, people living in cities, and people not living in cities in each continent.
-2.  System takes the population of the world from the database.
+1.  A forecaster request to organize the population of people in cities in each region.
+2.  System takes the population of people in cities in each region.
 3.  Then system output the result for organization.
 
 ## EXTENSIONS
+ 
+2. System can’t take the data from the database.
 
-There is no extension.
+   ​> Then the system output the empty list.
+
+1. In the database, population category is not included.
+  > Find the database containing information on population categories.
 
 ## SUB-VARIATIONS
 
