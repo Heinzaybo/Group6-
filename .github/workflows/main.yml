@@ -45,16 +45,14 @@ jobs:
           docker rm db
           docker image rm database
       - name: CodeCov
-        uses: codecov/codecov-action@v2
-        with:
+        uses: codecov/codecov-action@v3
+        env:
+          token: 6d141025-c967-44f5-b6bb-ffd6257c574f
           # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           directory: ./target/site/jacoco
           flags: Integration Tests # optional
           verbose: true # optional (default = false)
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          slug: Heinzaybo/Group6-
   build:
     name: Build
     runs-on: ubuntu-20.04
@@ -70,4 +68,3 @@ jobs:
         run: mvn package -DskipTests
       - name: Build
         run: docker compose up --abort-on-container-exit
-
