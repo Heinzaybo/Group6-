@@ -53,6 +53,7 @@ jobs:
             directory: ./target/site/jacoco
             flags: Integration Tests # optional
             verbose: true # optional (default = false)
+            slug: Heinzaybo/Group6-
   build:
     name: Build
     runs-on: ubuntu-20.04
