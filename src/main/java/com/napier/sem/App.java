@@ -73,7 +73,9 @@ public class App
             }
         }
     }
-
+    /**
+     * Retrieve information about countries from the database and generate a report.
+     */
     public ArrayList<Country> getCountriesWorld(){
         try{
             // Create string for SQL statement
@@ -483,8 +485,29 @@ public class App
         }else{
             a.connect(args[0], Integer.parseInt(args[1]));
         }
-
+        System.out.println("-----Countries in the Whole World-----");
+        a.getCountriesWorld();
+        System.out.println("-----Top 10 Most Populated Countries in the Whole World-----");
+        a.getCountriesWorld10();
+        System.out.println("-----Countries in the Asia Continent-----");
+        a.getCountriesContinent();
+        System.out.println("-----Top 10 Most Populated Countries in Asia Continent-----");
+        a.getCountriesContinent10();
+        System.out.println("-----Countries in the Southeast Asia Region-----");
+        a.getCountriesRegion(true);
+        System.out.println("-----Top 10 Most Populated Countries in Southeast Asia Region-----");
+        a.getCountriesRegion10();
+        System.out.println("----- Cities in the whole world-----");
+        a.getCitiesWorld();
+        System.out.println("----- Cities in Asia Continent-----");
+        a.getCitiesContinent(true);
+        System.out.println("----- Cities in Southeast Asia Region-----");
+        a.getCitiesRegion(true);
+        System.out.println("----- Cities in Myanmar-----");
+        a.getCitiesCountry();
+        System.out.println("----- Cities in Mandalay District-----");
         a.getCitiesDistrict();
+
         a.disconnect();
     }
 
