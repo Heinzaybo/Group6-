@@ -17,13 +17,17 @@ public class AppIntegrationTest
     {
         app = new App();
         app.connect("localhost:33060", 30000);
-
     }
 
     @Test
+    void testGetCitiesWorld()
+    {
+        app.getCitiesWorld();
+    }
+    @Test
     void testGetCountries()
     {
-        String query = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Code = 'Asia' ORDER BY Population DESC";
+        String query = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Code = 'MMR' ORDER BY Population DESC";
         ArrayList<Country> country = app.getCountries(query);
         for(Country c : country){
             assertEquals(c.getName(), "Myanmar");
@@ -31,5 +35,4 @@ public class AppIntegrationTest
             assertEquals(c.getRegion(), "Southeast Asia");
         }
     }
-
 }
