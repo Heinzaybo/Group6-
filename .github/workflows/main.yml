@@ -45,10 +45,8 @@ jobs:
           docker rm db
           docker image rm database
       - name: CodeCov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v2
         with:
-          env:
-          token: 6d141025-c967-44f5-b6bb-ffd6257c574f
           # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           directory: ./target/site/jacoco
           flags: Integration Tests # optional
