@@ -44,7 +44,6 @@ A forecaster request to view the population of people in cities in each country.
    ​> Then the system output the empty list.
 
 ## SUB-VARIATIONS
-
 None
 
 ## SCHEDULE
