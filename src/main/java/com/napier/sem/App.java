@@ -718,7 +718,9 @@ public class App
             return 0;
         }
     }
-
+    /**
+     * @return Returning District Population
+     */
     public long DistrictPopulation() {
         try {
             String query = "SELECT SUM(Population) AS DistrictPopulation FROM city WHERE District = ?";
@@ -739,6 +741,9 @@ public class App
         }
     }
 
+    /**
+     * @return Returning CitiesPopulation
+     */
     public long CityPopulation() {
         try {
             String query = "SELECT Population FROM city WHERE Name = ?";
@@ -759,6 +764,9 @@ public class App
         }
     }
 
+    /**
+     * @return Returning Languages
+     */
     public Resultset language(){
 
         String query = "SELECT cl.Language, SUM(cl.Percentage / 100 * c.Population) AS TotalSpeakers, (SUM(cl.Percentage / 100 * c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS PercentageOfWorldPopulation FROM countrylanguage cl JOIN country c ON cl.CountryCode = c.Code WHERE cl.Language IN ('Chinese', 'English', 'Hindi', 'Spanish', 'Arabic') GROUP BY cl.Language ORDER BY TotalSpeakers DESC;";
