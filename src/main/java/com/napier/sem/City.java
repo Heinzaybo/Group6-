@@ -30,6 +30,7 @@ public class City {
         District = district;
     }
 
+
     public int getPopulation() {
         return Population;
     }
