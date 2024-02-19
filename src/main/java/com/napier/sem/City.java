@@ -3,6 +3,7 @@ package com.napier.sem;
 public class City {
     private String Name;
     private String CountryCode;
+
     private String District;
     private int Population;
 
