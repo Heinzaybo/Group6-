@@ -21,7 +21,7 @@ jobs:
           mvn -Dtest=com.napier.sem.AppTest test          
           docker stop db
           docker rm db
-          docker image rm database
+          
 
   IntegrationTests:
     name: Integration Tests
