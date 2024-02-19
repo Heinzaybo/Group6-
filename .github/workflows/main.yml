@@ -79,4 +79,4 @@ jobs:
           automatic_release_tag: "latest"
           title: "Release ${{ github.ref }}"
           files: |
-              ./target/*.jar
+            ./target/*.jar
