@@ -149,6 +149,7 @@ public class App
             if(isOutput){
                 reportCountry(countries,"Countries_in_World");
             }
+
             return countries;
         }
         catch (Exception e){
