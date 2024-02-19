@@ -817,14 +817,14 @@ public class App
 //        System.out.println("-----Top 10 Capital Cities in the World-----");
 //        a.getCapitalCitiesWorld10(true);
 //        System.out.println("-----Top 10 Capital Cities in the Asia-----");
-        a.getCapitalCitiesContinent10(true);
+//        a.getCapitalCitiesContinent10(true);
 //        System.out.println("-----Top 10 Capital Cities in the Southeast Asia-----");
 //        a.getCapitalCitiesRegion10(true);
-//        a.populationContinent();
+        a.populationContinent();
 //        a.populationRegion();
 //        a.populationCountry();
 
-//        a.WorldPopulation();
+        a.WorldPopulation();
 //        a.ContinentPopulation();
 //        a.RegionPopulation();
 //        a.DistrictPopulation();

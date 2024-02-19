@@ -144,7 +144,6 @@ public class AppIntegrationTest
     @Test
     void testLanguage(){
         Resultset rset =  app.language();
-
     }
     @Test
     void testGetCapitalCitiesRegion10(){
@@ -152,8 +151,36 @@ public class AppIntegrationTest
        assertEquals("Jakarta",cities.get(0).getName());
     }
     @Test
-    void getCapitalCitiesContinent10(){
+    void testGetCapitalCitiesContinent10(){
         ArrayList <City> cities =  app.getCapitalCitiesContinent10(true);
         assertEquals("Seoul",cities.get(0).getName());
     }
+    @Test
+    void testGetCapitalCitiesWorld10(){
+        ArrayList <City> cities =  app.getCapitalCitiesWorld10(true);
+        assertEquals("Seoul",cities.get(0).getName());
+    }
+
+    @Test
+    void testGetCapitalCitiesRegion(){
+        ArrayList <City> cities =  app.getCapitalCitiesRegion(true);
+        assertEquals("Jakarta",cities.get(0).getName());
+    }
+    @Test
+    void getCapitalCitiesContinent(){
+        ArrayList <City> cities =  app.getCapitalCitiesContinent(true);
+        assertEquals("Seoul",cities.get(0).getName());
+    }
+    @Test
+    void getCapitalCitiesWorld(){
+        ArrayList <City> cities =  app.getCapitalCitiesWorld(true);
+        assertEquals("Seoul",cities.get(0).getName());
+    }
+    @Test
+    void populationRegion(){
+        Resultset rset  =  app.populationRegion();
+        assertNotNull(rset);
+    }
+
+
 }
