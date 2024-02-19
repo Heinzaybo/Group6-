@@ -46,9 +46,8 @@ jobs:
           docker image rm database
       - name: CodeCov
         uses: codecov/codecov-action@v3
-        with:
-#        env:
-#          token: 6d141025-c967-44f5-b6bb-ffd6257c574f
+        env:
+          token: 6d141025-c967-44f5-b6bb-ffd6257c574f
           # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           directory: ./target/site/jacoco
           flags: Integration Tests # optional
@@ -69,11 +68,3 @@ jobs:
         run: mvn package -DskipTests
       - name: Build
         run: docker compose up --abort-on-container-exit
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-              repo_token: "${{ secrets.GITHUB_TOKEN }}"
-              prerelease: false
-              automatic_release_tag: "latest"
-              title: "Release ${{ github.ref }}"
-              files: |
-                ./target/*.jar
