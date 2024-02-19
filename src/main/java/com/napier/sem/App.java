@@ -820,11 +820,11 @@ public class App
 //        a.getCapitalCitiesContinent10(true);
 //        System.out.println("-----Top 10 Capital Cities in the Southeast Asia-----");
 //        a.getCapitalCitiesRegion10(true);
-        a.populationContinent();
+//        a.populationContinent();
 //        a.populationRegion();
 //        a.populationCountry();
 
-        a.WorldPopulation();
+//        a.WorldPopulation();
 //        a.ContinentPopulation();
 //        a.RegionPopulation();
 //        a.DistrictPopulation();

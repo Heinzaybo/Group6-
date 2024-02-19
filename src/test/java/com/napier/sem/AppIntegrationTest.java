@@ -181,6 +181,11 @@ public class AppIntegrationTest
         Resultset rset  =  app.populationRegion();
         assertNotNull(rset);
     }
+    @Test
+    void populationCountry(){
+        String rset  =  app.populationCountry();
+        assertNotNull(rset);
+    }
 
 
 }
