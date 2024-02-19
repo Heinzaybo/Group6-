@@ -759,7 +759,7 @@ public class App
         }
     }
 
-    public void language(){
+    public Resultset language(){
 
         String query = "SELECT cl.Language, SUM(cl.Percentage / 100 * c.Population) AS TotalSpeakers, (SUM(cl.Percentage / 100 * c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS PercentageOfWorldPopulation FROM countrylanguage cl JOIN country c ON cl.CountryCode = c.Code WHERE cl.Language IN ('Chinese', 'English', 'Hindi', 'Spanish', 'Arabic') GROUP BY cl.Language ORDER BY TotalSpeakers DESC;";
         Statement stmt = null;
@@ -770,8 +770,10 @@ public class App
             while (rset.next()){
                 System.out.println(numberFormatter.format(rset.getLong("TotalSpeakers"))+" people is used "+rset.getString("Language")+" and it is "+rset.getLong("PercentageOfWorldPopulation")+"% of World Population");
             }
+            return (Resultset) rset;
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return  null;
         }
         // Create string for SQL statement
 
@@ -799,38 +801,38 @@ public class App
 //        a.getCitiesWorld();
 //        System.out.println("----- Cities in Asia Continent-----");
 //        a.getCitiesContinent(true);
-        System.out.println("----- Cities in Southeast Asia Region-----");
-        a.getCitiesRegion(true);
-        System.out.println("----- Cities in Myanmar-----");
-        a.getCitiesCountry();
-        System.out.println("----- Cities in Mandalay District-----");
-        a.getCitiesDistrict();
-        System.out.println("-----Capital Cities in the World-----");
-
-        a.getCapitalCitiesWorld(true);
-        System.out.println("-----Capital Cities in the Asia-----");
-        a.getCapitalCitiesContinent(true);
-        System.out.println("-----Capital Cities in the Southeast Asia-----");
-        a.getCapitalCitiesRegion(true);
-        System.out.println("-----Top 10 Capital Cities in the World-----");
-        a.getCapitalCitiesWorld10(true);
-        System.out.println("-----Top 10 Capital Cities in the Asia-----");
+//        System.out.println("----- Cities in Southeast Asia Region-----");
+//        a.getCitiesRegion(true);
+//        System.out.println("----- Cities in Myanmar-----");
+//        a.getCitiesCountry();
+//        System.out.println("----- Cities in Mandalay District-----");
+//        a.getCitiesDistrict();
+//        System.out.println("-----Capital Cities in the World-----");
+//
+//        a.getCapitalCitiesWorld(true);
+//        System.out.println("-----Capital Cities in the Asia-----");
+//        a.getCapitalCitiesContinent(true);
+//        System.out.println("-----Capital Cities in the Southeast Asia-----");
+//        a.getCapitalCitiesRegion(true);
+//        System.out.println("-----Top 10 Capital Cities in the World-----");
+//        a.getCapitalCitiesWorld10(true);
+//        System.out.println("-----Top 10 Capital Cities in the Asia-----");
         a.getCapitalCitiesContinent10(true);
-        System.out.println("-----Top 10 Capital Cities in the Southeast Asia-----");
-        a.getCapitalCitiesRegion10(true);
-        a.populationContinent();
-        a.populationRegion();
-        a.populationCountry();
+//        System.out.println("-----Top 10 Capital Cities in the Southeast Asia-----");
+//        a.getCapitalCitiesRegion10(true);
+//        a.populationContinent();
+//        a.populationRegion();
+//        a.populationCountry();
 
-        a.WorldPopulation();
-        a.ContinentPopulation();
-        a.RegionPopulation();
-        a.DistrictPopulation();
-        a.CountryPopulation();
-        a.CityPopulation();
-
-
-        a.language();
+//        a.WorldPopulation();
+//        a.ContinentPopulation();
+//        a.RegionPopulation();
+//        a.DistrictPopulation();
+//        a.CountryPopulation();
+//        a.CityPopulation();
+//
+//
+//        a.language();
         a.disconnect();
     }
 }

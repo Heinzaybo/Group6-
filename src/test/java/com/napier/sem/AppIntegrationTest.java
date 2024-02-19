@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+import com.mysql.cj.protocol.Resultset;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -109,5 +110,50 @@ public class AppIntegrationTest
     void testGetCitiesDistrict10(){
         List<City> cities = app.getCitiesDistrict();
         assertEquals("Mandalay",cities.get(0).getName());
+    }
+    @Test
+    void testWorldPopulation(){
+       long population =  app.WorldPopulation();
+       assertEquals(6078749450L,population);
+    }
+    @Test
+    void testContinentPopulation(){
+        long population =  app.ContinentPopulation();
+        assertEquals( 3705025700L,population);
+    }
+    @Test
+    void testRegionPopulation(){
+        long population =  app.RegionPopulation();
+        assertEquals(  518541000L,population);
+    }
+    @Test
+    void testDistrictPopulation(){
+        long population =  app.DistrictPopulation();
+        assertEquals(  1118600L,population);
+    }
+    @Test
+    void testCountryPopulation(){
+        long population =  app.CountryPopulation();
+        assertEquals(  45611000L,population);
+    }
+    @Test
+    void testCityPopulation(){
+        long population =  app.CityPopulation();
+        assertEquals(  885300L,population);
+    }
+    @Test
+    void testLanguage(){
+        Resultset rset =  app.language();
+
+    }
+    @Test
+    void testGetCapitalCitiesRegion10(){
+       ArrayList <City> cities =  app.getCapitalCitiesRegion10(true);
+       assertEquals("Jakarta",cities.get(0).getName());
+    }
+    @Test
+    void getCapitalCitiesContinent10(){
+        ArrayList <City> cities =  app.getCapitalCitiesContinent10(true);
+        assertEquals("Seoul",cities.get(0).getName());
     }
 }
