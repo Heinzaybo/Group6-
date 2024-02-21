@@ -25,33 +25,45 @@ public class App
     }
 
     /**
-     * Connect to the MySQL database.
-     */
+    * Method to connect to a MySQL database.
+ * 
+ * @param location The location of the database.
+ * @param delay    The delay in milliseconds before attempting to connect.
+ */
     public void connect(String location, int delay) {
         try {
             // Load Database driver
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
+            // Print error message if driver not found
             System.out.println("Could not load SQL driver");
+            // Exit the program with error status
             System.exit(-1);
         }
 
+        // Number of retries to connect to the database
         int retries = 10;
         for (int i = 0; i < retries; ++i) {
+            // Print status message indicating attempt to connect
             System.out.println("Connecting to database...");
             try {
-                // Wait a bit for db to start
+                // Wait for a specified delay before attempting to connect
                 Thread.sleep(delay);
-                // Connect to database
+                // Attempt to establish connection to the database
                 con = DriverManager.getConnection("jdbc:mysql://" + location
                                 + "/world?allowPublicKeyRetrieval=true&useSSL=false",
                         "root", "example");
+                // Print success message upon successful connection
                 System.out.println("Successfully connected");
+                // Break out of the loop as connection is successful
                 break;
             } catch (SQLException sqle) {
+                // Print error message if connection attempt fails
                 System.out.println("Failed to connect to database attempt " +                                  Integer.toString(i));
+                // Print the error message received from the database
                 System.out.println(sqle.getMessage());
             } catch (InterruptedException ie) {
+                // Print message if thread is interrupted unexpectedly
                 System.out.println("Thread interrupted? Should not happen.");
             }
         }
@@ -93,6 +105,9 @@ public class App
             return null;
         }
     }
+    /**
+ * Retrieve information about the top 10 most populated countries from the database and generate a report.
+ */
     public ArrayList<Country> getCountriesWorld10(){
         try{
             // Create string for SQL statement
@@ -107,9 +122,17 @@ public class App
             return null;
         }
     }
+    /**
+ * Retrieve information about countries in a specific continent from the database and generate a report.
+ * By default, outputs the report.
+ */
     public ArrayList<Country> getCountriesContinent() {
         return getCountriesContinent(true); // Delegate to the overloaded method with default parameter value
     }
+    /**
+ * Retrieve information about countries in a specific continent from the database and optionally generate a report.
+ * @param isOutput true if the report should be generated; false otherwise.
+ */
     public ArrayList<Country> getCountriesContinent(boolean isOutput){
         try{
             // Create string for SQL statement
@@ -128,24 +151,30 @@ public class App
     }
     public ArrayList<Country> getCountriesContinent10(){
         try{
-            // Create string for SQL statement
+           // Create string for SQL statement to select top 10 countries in Asia by population
+        String strSelect;
             String strSelect;
             strSelect = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Continent = 'Asia' ORDER BY Population DESC LIMIT 10 ";
+            // Retrieve countries based on the SQL query
             ArrayList<Country> countries = getCountries(strSelect);
+            // Retrieve countries based on the SQL query
             reportCountry(countries,"Countries_in_World");
             return countries;
         }
         catch (Exception e){
+            // Print any exceptions that occur during the process
             System.out.println(e.getMessage());
             return null;
         }
     }
     public ArrayList<Country> getCountriesRegion(boolean isOutput){
         try{
-            // Create string for SQL statement
+           // Create string for SQL statement to select countries in Southeast Asia region
             String strSelect;
             strSelect = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC";
+            // Retrieve countries based on the SQL query
             ArrayList<Country> countries = getCountries(strSelect);
+            // If specified, report the countries to console and file
             if(isOutput){
                 reportCountry(countries,"Countries_in_World");
             }
@@ -153,6 +182,7 @@ public class App
             return countries;
         }
         catch (Exception e){
+            // Print any exceptions that occur during the process
             System.out.println(e.getMessage());
             return null;
         }
@@ -160,21 +190,26 @@ public class App
 
     public List<Country> getCountriesRegion10(){
         try{
-            // Create string for SQL statement
+            // Create string for SQL statement to select top 10 countries in Southeast Asia by population
             String strSelect;
             strSelect = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Region = 'Southeast Asia' ORDER BY Population DESC LIMIT 10 ";
+            // Retrieve countries based on the SQL query
             ArrayList<Country> countries = getCountries(strSelect);
+            // Generate and report the countries to console and file
             reportCountry(countries,"Countries_in_World");
             return countries;
         }
         catch (Exception e){
+            // Print any exceptions that occur during the process
             System.out.println(e.getMessage());
             return null;
         }
     }
 
+    // Method to report countries to console and file
     public static void  reportCountry(ArrayList<Country> countries,String filename){
         if (countries == null || countries.isEmpty()){
+            // If no countries are retrieved, print a message and return
             System.out.println("No Countries");
             return;
         }
@@ -183,43 +218,53 @@ public class App
         StringBuilder sb = new StringBuilder();
         //Formatting string for header
         sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        // Iterate over each country to retrieve details and format them
         for (Country country : countries)
         {
             if(country == null){
+                // If a country is null, print a message and return
                 System.out.println("No Country");
                 return;
             }
             String cname = null;
             try {
+                // Create statement to execute SQL query to get capital city name
                 Statement stmt = con.createStatement();
                 // Create string for SQL statement
                 String strSelect;
                 strSelect = "SELECT Name FROM city WHERE ID ="+country.getCapital()+" ORDER BY Population DESC";
+                // Execute query and retrieve capital city name
                 ResultSet rset = stmt.executeQuery(strSelect);
                 while (rset.next()){
                     cname = rset.getString("Name");
                 }
 
             }catch (Exception e){
+                 // Print any exceptions that occur during the process
                 System.out.println(e.getMessage());
                 System.out.println("Failed to get cities details");
 
             }
+            // Format population number with locale-specific formatting
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
 
+            // Append country details to StringBuilder
             sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n",
                     country.getCode(), country.getName(), country.getContinent(), country.getRegion(), numberFormatter.format(country.getPopulation()), cname));
         }
-        //displaying output to console
+        //Displaying output to console
         System.out.println(sb.toString());
 
         //Writing Report file
         try {
+             // Create directory for reports if it doesn't exist
             new File("./reports/").mkdir();
+            // Write formatted output to file
             BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + filename)));
             writer.write(sb.toString());
             writer.close();
         } catch (IOException e) {
+            // Print any exceptions that occur during the file writing process
             e.printStackTrace();
         }
 
@@ -229,28 +274,39 @@ public class App
     {
         try
         {
+            // Create a statement object to execute SQL queries
             Statement stmt = con.createStatement();
+            // Execute the SQL query passed as a parameter
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
+            // Create a new ArrayList to store Country objects
             ArrayList<Country> countries = new ArrayList<Country>();
+            // Loop through the result set
             while (rset.next())
             {
+                // Create a new Country object
                 Country c = new Country();
+                // Set the properties of the Country object using data from the result set
                 c.setCode(rset.getString("Code"));
                 c.setName(rset.getString("Name"));
                 c.setContinent(rset.getString("Continent"));
                 c.setRegion(rset.getString("Region"));
                 c.setPopulation(rset.getInt("Population"));
                 c.setCapital(rset.getString("Capital"));
+                // Add the Country object to the ArrayList
                 countries.add(c);
             }
+             // Return the ArrayList of countries
             return countries;
         }
+        // Catch any exceptions that occur during execution
         catch (Exception e)
         {
+            
+            // Print the error message
             System.out.println(e.getMessage());
+            // Print a message indicating failure to get country details
             System.out.println("Failed to get Countries details");
+            // Return null to indicate failure
             return null;
         }
     }
@@ -258,14 +314,21 @@ public class App
     public ArrayList<City> getCitiesWorld(){
         try{
             // Create string for SQL statement
-            String strSelect;
-            strSelect = "SELECT CountryCode, Name, District, Population FROM city ORDER BY Population DESC";
-            ArrayList<City> cities = getCities(strSelect);
-            reportCities(cities,"Cities_in_World");
-            return cities;
+        String strSelect;
+        // Construct the SQL query to select cities ordered by population
+        strSelect = "SELECT CountryCode, Name, District, Population FROM city ORDER BY Population DESC";
+        // Call the getCities method passing the SQL query as a parameter
+        ArrayList<City> cities = getCities(strSelect);
+        // Generate a report for the cities retrieved
+        reportCities(cities,"Cities_in_World");
+        // Return the ArrayList of cities
+        return cities;
         }
+        // Catch any exceptions that occur during execution
         catch (Exception e){
+            // Print the error message
             System.out.println(e.getMessage());
+            // Return null to indicate failure
             return null;
         }
     }
