@@ -270,6 +270,7 @@ public class App
             {
                 // Create a new Country object
                 Country c = new Country();
+                // Set the properties of the Country object using data from the result set
                 c.setCode(rset.getString("Code"));
                 c.setName(rset.getString("Name"));
                 c.setContinent(rset.getString("Continent"));
@@ -341,7 +342,7 @@ public class App
         return getCitiesContinent(true);
     }
 
-    // Retrieves and return information about cities in a continent based on the specified flag
+    // Retrieves and return information about cities in a continent 
     public ArrayList<City> getCitiesContinent(boolean isOutput){
         try{
             // Create string for SQL statement
@@ -358,68 +359,94 @@ public class App
                     return Integer.compare(city2.getPopulation(), city1.getPopulation());
                 }
             });
+            // Report and display the cities
             if (isOutput){
                 reportCities(cities,"Cities_in_Continent");
             }
+             // Return the sorted list of cities
             return cities;
         }
         catch (Exception e){
+            // Print the error message
             System.out.println(e.getMessage());
+            // Return null to indicate failure
             return null;
         }
     }
 
+    //Retrieves and return information for top 10 crities in a continent.
     public ArrayList<City> getCitiesContinent10(){
         try {
+            // Create string for SQL statement
             ArrayList<City> cities = getCitiesContinent(false);
+            // Initialize an ArrayList contain top 10 cities
             ArrayList<City> top10Cities = new ArrayList<>(cities.subList(0, Math.min(cities.size(), 10)));
+            // Report top 10 cities
             reportCities(top10Cities,"Cities_Continent_10");
             return top10Cities;
         }
         catch (Exception e){
+            // Print the error message
             System.out.println(e.getMessage());
             return null;
         }
     }
 
+    // Retrieves and returns information about cities in a specific region.
     public ArrayList<City> getCitiesRegion(){
         return getCitiesRegion(true);
     }
 
+    // Retrieve and returns information about cities in a region based on the flag.
     public ArrayList<City> getCitiesRegion(boolean isOutput){
         try{
             // Create string for SQL statement for getting cities from Southeast Asia
             String query1 = "SELECT city.CountryCode, city.Name, city.District, city.Population FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Region = 'Southeast Asia' ORDER BY city.Population DESC;";
+            // Retrieve cities based on SQL query
             ArrayList<City> cities = getCities(query1);
+           // Report and display cities in the region.
             if (isOutput){
                 reportCities(cities,"Cities_in_Continent");
             }
             return cities;
         }
         catch (Exception e){
+            // Print the error message
             System.out.println(e.getMessage());
             return null;
         }
     }
 
+    // Retrieves and returns information about the top 10 crities in a region
     public List<City> getCitiesRegion10(){
         try {
+            // Create string for SQL statement
             ArrayList<City> cities = getCitiesRegion(false);
+
+            // Create a new ArrayList containing the top 10 cities.
             ArrayList<City> top10Cities = new ArrayList<>(cities.subList(0, Math.min(cities.size(), 10)));
+            // Report and display top 10 cities
             reportCities(top10Cities,"Cities_Region_10");
             return top10Cities;
         }
         catch (Exception e){
+            // Print the error message 
             System.out.println(e.getMessage());
             return null;
         }
     }
+    // Retrieves and return information about cities in country (Myanmar)
+    // Method construts a SQL query to select cities from the country (Myanmar)
+    // Order to result by population in descending order and retrieves the data.
+    // If the operation is successful, it reports and disiplay cities.
+    // If an exception occurs, it prints the error message.
 
     public ArrayList<City> getCitiesCountry(){
         try{
             // Create string for SQL statement
             String strSelect;
             strSelect = "SELECT CountryCode, Name, District, Population FROM city WHERE CountryCode='MMR' ORDER BY Population DESC";
+            // Retrieve cities based on the SQL query.
             ArrayList<City> cities = getCities(strSelect);
             reportCities(cities,"Cities_in_Country");
             return cities;
@@ -430,11 +457,18 @@ public class App
         }
     }
 
+// Retrieves and returns information about cities in a specific distrcit of Mandalay.
+// Method construts a SQL query to select cities from the specified district.
+// Order to result by population in descending order and retrieves the data.
+// If the operation is successful, it reports and disiplay cities.
+// If an exception occurs, it prints the error message.
+
     public ArrayList<City> getCitiesDistrict(){
         try{
             // Create string for SQL statement
             String strSelect;
             strSelect = "SELECT CountryCode, Name, District, Population FROM city WHERE District='Mandalay' ORDER BY Population DESC";
+            // Retrieve cities based on the specified SQL query.
             ArrayList<City> cities = getCities(strSelect);
             reportCities(cities,"Cities_in_Region");
             return cities;
@@ -444,9 +478,11 @@ public class App
             return null;
         }
     }
+    // Retrieve capital cities world wide and optionally report the results
 
     public ArrayList<City> getCapitalCitiesWorld(boolean isOutput){
         String query = "SELECT city.Name, city.CountryCode, city.District, city.Population FROM city JOIN country ON city.ID = country.Capital ORDER BY city.Population DESC;";
+        // Retrieve cities using the getCities method
         ArrayList<City> cities = getCities(query);
         if (isOutput){
             reportCities(cities,"Capital Cities World");
@@ -454,22 +490,29 @@ public class App
         return cities;
     }
 
+    // Retrieve capital cities by continent and optionally report the results
     public ArrayList<City> getCapitalCitiesContinent(boolean isOutput){
+        // SQL query to select capital cities in Asia.
         String query = "SELECT city.Name, city.CountryCode, city.District, city.Population FROM city JOIN country ON city.ID = country.Capital WHERE country.Continent = 'Asia' ORDER BY city.Population DESC;";
         ArrayList<City> cities = getCities(query);
         if (isOutput){
             reportCities(cities,"Capital Cities Continent");
         }
+        // Return the list cities.
         return cities;
     }
+    // Retrieve capital cities by region and optionally report the results
     public ArrayList<City> getCapitalCitiesRegion(boolean isOutput){
+        // SQL query to select capital cities in Southeast Asia.
         String query = "SELECT city.Name, city.CountryCode, city.District, city.Population FROM city JOIN country ON city.ID = country.Capital WHERE country.Region = 'Southeast Asia' ORDER BY city.Population DESC;";
+        // Retrieve cities using the getCities method
         ArrayList<City> cities = getCities(query);
         if (isOutput){
             reportCities(cities,"Capital Cities in Region");
         }
         return cities;
     }
+    // Retrieve the top 10 capital cities worldwide by population and optionally report the results.
     public ArrayList<City> getCapitalCitiesWorld10(boolean isOutput){
         String query = "SELECT city.Name, city.CountryCode, city.District, city.Population FROM city JOIN country ON city.ID = country.Capital ORDER BY city.Population DESC LIMIT 10;";
         ArrayList<City> cities = getCities(query);
@@ -478,17 +521,27 @@ public class App
         }
         return cities;
     }
-
+    
+    /** 
+     * Retrieves the top 10 capital cities in Asia based on pupulation.
+     *
+     * @param isOutput Flag to determine whether to report the cities or not.
+     * @return ArrayList of City objects representing the capital cities.
+     */
+    
     public ArrayList<City> getCapitalCitiesContinent10(boolean isOutput){
         String query = "SELECT city.Name, city.CountryCode, city.District, city.Population FROM city JOIN country ON city.ID = country.Capital WHERE country.Continent = 'Asia' ORDER BY city.Population DESC LIMIT 10;";
+        // Retrieve the capital cities based on the provided query
         ArrayList<City> cities = getCities(query);
         if (isOutput){
             reportCities(cities,"Capital Cities Continent");
         }
         return cities;
     }
+    // Retrieves the top 10 capital cities in the region
     public ArrayList<City> getCapitalCitiesRegion10(boolean isOutput){
         String query = "SELECT city.Name, city.CountryCode, city.District, city.Population FROM city JOIN country ON city.ID = country.Capital WHERE country.Region = 'Southeast Asia' ORDER BY city.Population DESC LIMIT 10;";
+        // Retrieve the capital cities based on the provided query
         ArrayList<City> cities = getCities(query);
         if (isOutput){
             reportCities(cities,"Capital Cities in Region");
@@ -496,16 +549,18 @@ public class App
         return cities;
     }
 
-
+// Retrieves a list of City objects based on the provided SQL query
     public ArrayList<City> getCities(String strSelect)
     {
         try
         {
+            // Create a statement and execute the provided SQL query
             Statement stmt = con.createStatement();
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
             // Check one is returned
             ArrayList<City> cities = new ArrayList<City>();
+            // Iterate through the ResultSet and populate the City objects
             while (rset.next())
             {
                 City c = new City();
@@ -519,6 +574,7 @@ public class App
         }
         catch (Exception e)
         {
+            // Print error messages
             System.out.println(e.getMessage());
             System.out.println("Failed to get Countries details");
             return null;
