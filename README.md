@@ -1,7 +1,7 @@
 # Software Engineering Methods
 Master Build Status ![GitHub Workflow Status (master)](https://img.shields.io/github/actions/workflow/status/Heinzaybo/Group6-/.github%2Fworkflows%2Fmain.yml?branch=masterp&style=flat-square)
 
-Develop Build Status ![GitHub Workflow Status (master)](https://img.shields.io/github/actions/workflow/status/Heinzaybo/Group6-/.github%2Fworkflows%2Fmain.yml?branch=master&style=flat-square)
+Develop Build Status ![GitHub Workflow Status (master)](https://img.shields.io/github/actions/workflow/status/Heinzaybo/Group6-/.github%2Fworkflows%2Fmain.yml?branch=develop&style=flat-square)
 
 [![LICENSE](https://img.shields.io/github/license/Heinzaybo/Group6-.svg?style=flat-square)](https://github.com/Heinzaybo/Group6-/blob/master/LICENSE)
 
