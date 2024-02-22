@@ -182,10 +182,7 @@ public class App
         //Creating String builder for formatting string
         StringBuilder sb = new StringBuilder();
         //Formatting string for header
-        sb.append("+--------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-        sb.append(String.format("| %-10s | %-50s | %-20s | %-30s | %-20s | %-10s |\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
-        sb.append("+--------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-
+        sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         for (Country country : countries)
         {
             if(country == null){
@@ -210,7 +207,7 @@ public class App
             }
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
 
-            sb.append(String.format("| %-10s | %-50s | %-20s | %-30s | %-20s | %-10s |\n",
+            sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n",
                     country.getCode(), country.getName(), country.getContinent(), country.getRegion(), numberFormatter.format(country.getPopulation()), cname));
         }
         //displaying output to console
@@ -484,10 +481,7 @@ public class App
         //Creating String builder for formatting string
         StringBuilder sb = new StringBuilder();
         //Formatting string for header
-        sb.append("+-------------------------------+--------------------------------------------------+--------------------------------------------------+-------------------------------+\n");
-        sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n", "Name", "Country", "District", "Population"));
-        sb.append("+-------------------------------+--------------------------------------------------+--------------------------------------------------+-------------------------------+\n");
-
+        sb.append(String.format("%-30s %-50s %-50s %-30s\n",  "Name", "Country", "District", "Population"));
         for (City city : cities)
         {
             String cname = null;
@@ -508,7 +502,7 @@ public class App
             }
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
 
-            sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n",
+            sb.append(String.format("%-30s %-50s %-50s %-30s\n",
                     city.getName(), cname, city.getDistrict(), numberFormatter.format(city.getPopulation())));
         }
         //displaying output to console
@@ -532,10 +526,7 @@ public class App
             Statement stmt = con.createStatement();
             ResultSet rset = stmt.executeQuery(query);
             StringBuilder sb = new StringBuilder();
-            sb.append("+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-            sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n", "Continent",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
-            sb.append("+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-
+            sb.append(String.format("%-30s %-50s %-50s %-30s\n", "Continent",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
 
             while (rset.next())
@@ -552,7 +543,7 @@ public class App
                     pc = rset.getLong("PopulationInCities");
                     pnc = rset.getLong("PopulationNotInCities");
                 }
-                sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n",
+                sb.append(String.format("%-30s %-50s %-50s %-30s\n",
                         rset.getString("Continent"), numberFormatter.format(rset.getLong("TotalPopulation")), numberFormatter.format(pc), numberFormatter.format(pnc)));
             }
 
@@ -573,10 +564,7 @@ public class App
             Statement stmt = con.createStatement();
             ResultSet rset = stmt.executeQuery(query);
             StringBuilder sb = new StringBuilder();
-            sb.append("+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-            sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n", "Region",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
-            sb.append("+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-
+            sb.append(String.format("%-30s %-50s %-50s %-30s\n", "Region",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
 
             while (rset.next())
@@ -593,7 +581,7 @@ public class App
                     pc = rset.getLong("PopulationInCities");
                     pnc = rset.getLong("PopulationNotInCities");
                 }
-                sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n",
+                sb.append(String.format("%-30s %-50s %-50s %-30s\n",
                         rset.getString("Region"), numberFormatter.format(rset.getLong("TotalPopulation")), numberFormatter.format(pc), numberFormatter.format(pnc)));
             }
             System.out.println(sb.toString());
@@ -614,10 +602,7 @@ public class App
             Statement stmt = con.createStatement();
             ResultSet rset = stmt.executeQuery(query);
             StringBuilder sb = new StringBuilder();
-            sb.append("+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-            sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n", "Continent",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
-            sb.append("+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-
+            sb.append(String.format("%-30s %-50s %-50s %-30s\n", "Country",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
 
             while (rset.next())
@@ -634,7 +619,7 @@ public class App
                     pc = rset.getLong("PopulationInCities");
                     pnc = rset.getLong("PopulationNotInCities");
                 }
-                sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n",
+                sb.append(String.format("%-30s %-50s %-50s %-30s\n",
                         rset.getString("Name"), numberFormatter.format(rset.getLong("TotalPopulation")), numberFormatter.format(pc), numberFormatter.format(pnc)));
             }
             System.out.println(sb.toString());
@@ -808,54 +793,53 @@ public class App
         }else{
             a.connect(args[0], Integer.parseInt(args[1]));
         }
-        System.out.println("-----Countries in the Whole World-----");
-        a.getCountriesWorld();
-        System.out.println("-----Top 10 Most Populated Countries in the Whole World-----");
-        a.getCountriesWorld10();
-        System.out.println("-----Countries in the Asia Continent-----");
-        a.getCountriesContinent();
-        System.out.println("-----Top 10 Most Populated Countries in Asia Continent-----");
-        a.getCountriesContinent10();
-        System.out.println("-----Countries in the Southeast Asia Region-----");
-        a.getCountriesRegion(true);
-        System.out.println("-----Top 10 Most Populated Countries in Southeast Asia Region-----");
-        a.getCountriesRegion10();
-        System.out.println("----- Cities in the whole world-----");
-        a.getCitiesWorld();
-        System.out.println("----- Cities in Asia Continent-----");
-        a.getCitiesContinent(true);
-        System.out.println("----- Cities in Southeast Asia Region-----");
-        a.getCitiesRegion(true);
-        System.out.println("----- Cities in Myanmar-----");
-        a.getCitiesCountry();
-        System.out.println("----- Cities in Mandalay District-----");
-        a.getCitiesDistrict();
-        System.out.println("-----Capital Cities in the World-----");
+//        System.out.println("-----Countries in the Whole World-----");
+//        a.getCountriesWorld();
+//        System.out.println("-----Top 10 Most Populated Countries in the Whole World-----");
+//        a.getCountriesWorld10();
+//        System.out.println("-----Countries in the Asia Continent-----");
+//        a.getCountriesContinent();
+//        System.out.println("-----Top 10 Most Populated Countries in Asia Continent-----");
+//        a.getCountriesContinent10();
+//        System.out.println("-----Countries in the Southeast Asia Region-----");
+//        a.getCountriesRegion(true);
+//        System.out.println("-----Top 10 Most Populated Countries in Southeast Asia Region-----");
+//        a.getCountriesRegion10();
+//        System.out.println("----- Cities in the whole world-----");
+//        a.getCitiesWorld();
+//        System.out.println("----- Cities in Asia Continent-----");
+//        a.getCitiesContinent(true);
+//        System.out.println("----- Cities in Southeast Asia Region-----");
+//        a.getCitiesRegion(true);
+//        System.out.println("----- Cities in Myanmar-----");
+//        a.getCitiesCountry();
+//        System.out.println("----- Cities in Mandalay District-----");
+//        a.getCitiesDistrict();
+//        System.out.println("-----Capital Cities in the World-----");
+//
+//        a.getCapitalCitiesWorld(true);
+//        System.out.println("-----Capital Cities in the Asia-----");
+//        a.getCapitalCitiesContinent(true);
+//        System.out.println("-----Capital Cities in the Southeast Asia-----");
+//        a.getCapitalCitiesRegion(true);
+//        System.out.println("-----Top 10 Capital Cities in the World-----");
+//        a.getCapitalCitiesWorld10(true);
+//        System.out.println("-----Top 10 Capital Cities in the Asia-----");
+//        a.getCapitalCitiesContinent10(true);
+//        System.out.println("-----Top 10 Capital Cities in the Southeast Asia-----");
+//        a.getCapitalCitiesRegion10(true);
+//        a.populationContinent();
+//        a.populationRegion();
+//        a.populationCountry();
 
-        a.getCapitalCitiesWorld(true);
-        System.out.println("-----Capital Cities in the Asia-----");
-        a.getCapitalCitiesContinent(true);
-        System.out.println("-----Capital Cities in the Southeast Asia-----");
-        a.getCapitalCitiesRegion(true);
-        System.out.println("-----Top 10 Capital Cities in the World-----");
-        a.getCapitalCitiesWorld10(true);
-        System.out.println("-----Top 10 Capital Cities in the Asia-----");
-        a.getCapitalCitiesContinent10(true);
-        System.out.println("-----Top 10 Capital Cities in the Southeast Asia-----");
-        a.getCapitalCitiesRegion10(true);
-
-        a.populationContinent();
-        a.populationRegion();
-        a.populationCountry();
-
-        a.WorldPopulation();
-        a.ContinentPopulation();
-        a.RegionPopulation();
-        a.DistrictPopulation();
-        a.CountryPopulation();
-        a.CityPopulation();
-
-
+//        a.WorldPopulation();
+//        a.ContinentPopulation();
+//        a.RegionPopulation();
+//        a.DistrictPopulation();
+//        a.CountryPopulation();
+//        a.CityPopulation();
+//
+//
 //        a.language();
         a.disconnect();
     }
