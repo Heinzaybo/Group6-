@@ -629,18 +629,24 @@ public class App
         }
 
     }
+    /**
+    *Retrieves population statistics for each continent including total population, population in cities, and population not in cities.
+    */
     public Resultset populationContinent(){
         try
         {
+            // SQL query to retrieve population statistics for each continent including total population, population in cities, and population not in cities.
             String query = "SELECT country.Continent,SUM(country.Population) AS TotalPopulation, SUM(city.Population) AS PopulationInCities, SUM(country.Population) - SUM(city.Population) AS PopulationNotInCities FROM country LEFT JOIN city ON country.Code = city.CountryCode GROUP BY country.Continent;";
             Statement stmt = con.createStatement();
             ResultSet rset = stmt.executeQuery(query);
             StringBuilder sb = new StringBuilder();
             sb.append(String.format("%-30s %-50s %-50s %-30s\n", "Continent",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
-
+            
+            // Loop through the ResultSet to build the result string
             while (rset.next())
             {
+                // Handling null values for population in cities and population not in cities
                 String pC = rset.getString("PopulationInCities");
                 long pc =0;
                 String pNC = rset.getString("PopulationNotInCities");
@@ -653,15 +659,18 @@ public class App
                     pc = rset.getLong("PopulationInCities");
                     pnc = rset.getLong("PopulationNotInCities");
                 }
+                // Appending population statistics to the result string
                 sb.append(String.format("%-30s %-50s %-50s %-30s\n",
                         rset.getString("Continent"), numberFormatter.format(rset.getLong("TotalPopulation")), numberFormatter.format(pc), numberFormatter.format(pnc)));
             }
 
+            // Printing the result string
             System.out.println(sb.toString());
             return (Resultset) rset;
         }
         catch (Exception e)
         {
+            // Handling exceptions
             System.out.println(e.getMessage());
             System.out.println("Failed to get Countries details");
             return  null;
@@ -705,6 +714,9 @@ public class App
         }
     }
 
+    /**
+     * Retrieves population statistics for each region including total population, population in cities, and population not in cities.
+     */
     public String populationCountry(){
         try
         {
@@ -743,6 +755,10 @@ public class App
 
         }
     }
+
+    /**
+     * Retrieves the total world population.
+     */
     public long WorldPopulation() {
         try {
             String query = "SELECT SUM(Population) AS WorldPopulation FROM country;";
@@ -787,7 +803,9 @@ public class App
         }
     }
 
-
+    /**
+     * Retrieves the population of a specific region (e.g., Southeast Asia).
+     */
     public long RegionPopulation() {
         try {
             String query = "SELECT SUM(Population) AS RegionPopulation FROM country WHERE Region = ?";
@@ -809,6 +827,9 @@ public class App
         }
     }
 
+    /**
+     * Retrieves the population of a specific country (e.g., Myanmar).
+     */
     public long CountryPopulation() {
         try {
             String query = "SELECT Population FROM country WHERE Code = ?";
