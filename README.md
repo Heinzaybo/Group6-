@@ -7,3 +7,5 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 
 [![Releases](https://img.shields.io/github/release/Heinzaybo/Group6-/all.svg?style=flat-square)](https://github.com/Heinzaybo/Group6-/releases)
 
+Zube link (https://zube.io/napier-308/group-6-devops/w/workspace-1/sprintboard?where%5Bsprint_id%5D=57554)
+
