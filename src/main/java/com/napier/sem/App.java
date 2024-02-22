@@ -332,29 +332,36 @@ public class App
             return null;
         }
     }
+    //Retrieves and return information for top 10 crities in the world.
     public ArrayList<City> getCitiesWorld10(){
         try{
             // Create string for SQL statement
             String strSelect;
             strSelect = "SELECT CountryCode, Name, District, Population FROM city ORDER BY Population DESC LIMIT 10";
+            // Retrieve cities based on the SQL query.
             ArrayList<City> cities =getCities(strSelect);
+            // Report the cicities with custom identifier and display.
             reportCities(cities,"Cities_in_World");
+            // Return cities.
             return cities;
         }
         catch (Exception e){
+          // Print the error message
             System.out.println(e.getMessage());
+          // Return null to indicate failure
             return null;
         }
     }
-
+    // Retrieves and return information about cities in continent.
     public ArrayList<City> getCitiesContinent(){
         return getCitiesContinent(true);
     }
-
+    // Retrieves and return information about cities in a continent based on the specified flag
     public ArrayList<City> getCitiesContinent(boolean isOutput){
         try{
             // Create string for SQL statement
             ArrayList<Country> asia =  getCountriesContinent(false);
+            // Initialize an ArrayList to store cities in the continent
             ArrayList<City> cities = new ArrayList<City>();
             for (Country country : asia){
                 String query = "SELECT CountryCode, Name, District, Population FROM city WHERE CountryCode ='"+country.getCode()+"' ORDER BY Population DESC";
@@ -367,46 +374,61 @@ public class App
                     return Integer.compare(city2.getPopulation(), city1.getPopulation());
                 }
             });
+            // Report and display the cities
             if (isOutput){
                 reportCities(cities,"Cities_in_Continent");
             }
+            // Return the sorted list of cities 
             return cities;
         }
         catch (Exception e){
+            // Print the error message
             System.out.println(e.getMessage());
+            // Return null to indicate failure
             return null;
         }
     }
-
+    // Retrieves and return information about the top 10 cities in a continent.
     public ArrayList<City> getCitiesContinent10(){
         try {
+            // Create string for SQL statement
             ArrayList<City> cities = getCitiesContinent(false);
+            // Initialize an ArrayList contain top 10 cities
             ArrayList<City> top10Cities = new ArrayList<>(cities.subList(0, Math.min(cities.size(), 10)));
+            // Report top 10 cities
             reportCities(top10Cities,"Cities_Continent_10");
+            // Return ArrayList containing top 10 cities.
             return top10Cities;
         }
         catch (Exception e){
+            // Print the error message
             System.out.println(e.getMessage());
+            // Return null to indicate failure
             return null;
         }
     }
-
+   // Retrieves and returns information about cities in a specific region.
     public ArrayList<City> getCitiesRegion(){
         return getCitiesRegion(true);
     }
-
+    // Retrieve and returns information about cities in a region based on the flag.
     public ArrayList<City> getCitiesRegion(boolean isOutput){
         try{
             // Create string for SQL statement for getting cities from Southeast Asia
             String query1 = "SELECT city.CountryCode, city.Name, city.District, city.Population FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Region = 'Southeast Asia' ORDER BY city.Population DESC;";
+            // Retrieve cities based on SQL query
             ArrayList<City> cities = getCities(query1);
+            // Report and display cities in the region.
             if (isOutput){
                 reportCities(cities,"Cities_in_Continent");
             }
+            // Return the list of cities.
             return cities;
         }
         catch (Exception e){
+            // Print the error message
             System.out.println(e.getMessage());
+            // Return null to indicate failure
             return null;
         }
     }
