@@ -9,3 +9,5 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 
 Zube link (https://zube.io/napier-308/group-6-devops/w/workspace-1/sprintboard?where%5Bsprint_id%5D=57554)
 
+Codecov link (https://app.codecov.io/gh/Heinzaybo/Group6-)
+
