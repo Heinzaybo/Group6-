@@ -203,7 +203,10 @@ public class App
         //Creating String builder for formatting string
         StringBuilder sb = new StringBuilder();
         //Formatting string for header
-        sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        sb.append("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+        sb.append(String.format("| %-10s | %-50s | %-20s | %-30s | %-20s | %-10s |\n", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        sb.append("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+
         // Iterate over each country to retrieve details and format them
         for (Country country : countries)
         {
@@ -235,7 +238,7 @@ public class App
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
 
             // Append country details to StringBuilder
-            sb.append(String.format("%-10s %-50s %-20s %-30s %-20s %-10s\n",
+            sb.append(String.format("| %-10s | %-50s | %-20s | %-30s | %-20s | %-10s |\n",
                     country.getCode(), country.getName(), country.getContinent(), country.getRegion(), numberFormatter.format(country.getPopulation()), cname));
         }
         //displaying output to console
@@ -591,7 +594,10 @@ public class App
         //Creating String builder for formatting string
         StringBuilder sb = new StringBuilder();
         //Formatting string for header
-        sb.append(String.format("%-30s %-50s %-50s %-30s\n",  "Name", "Country", "District", "Population"));
+        sb.append("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+        sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n",  "Name", "Country", "District", "Population"));
+        sb.append("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+
         for (City city : cities)
         {
             String cname = null;
@@ -612,7 +618,7 @@ public class App
             }
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
 
-            sb.append(String.format("%-30s %-50s %-50s %-30s\n",
+            sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n",
                     city.getName(), cname, city.getDistrict(), numberFormatter.format(city.getPopulation())));
         }
         //displaying output to console
@@ -640,7 +646,10 @@ public class App
             Statement stmt = con.createStatement();
             ResultSet rset = stmt.executeQuery(query);
             StringBuilder sb = new StringBuilder();
-            sb.append(String.format("%-30s %-50s %-50s %-30s\n", "Continent",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
+            sb.append("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n", "Continent",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
+            sb.append("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
             
             // Loop through the ResultSet to build the result string
@@ -660,7 +669,7 @@ public class App
                     pnc = rset.getLong("PopulationNotInCities");
                 }
                 // Appending population statistics to the result string
-                sb.append(String.format("%-30s %-50s %-50s %-30s\n",
+                sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n",
                         rset.getString("Continent"), numberFormatter.format(rset.getLong("TotalPopulation")), numberFormatter.format(pc), numberFormatter.format(pnc)));
             }
 
@@ -683,7 +692,10 @@ public class App
             Statement stmt = con.createStatement();
             ResultSet rset = stmt.executeQuery(query);
             StringBuilder sb = new StringBuilder();
-            sb.append(String.format("%-30s %-50s %-50s %-30s\n", "Region",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
+            sb.append("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n", "Region",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
+            sb.append("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
 
             while (rset.next())
@@ -700,7 +712,7 @@ public class App
                     pc = rset.getLong("PopulationInCities");
                     pnc = rset.getLong("PopulationNotInCities");
                 }
-                sb.append(String.format("%-30s %-50s %-50s %-30s\n",
+                sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n",
                         rset.getString("Region"), numberFormatter.format(rset.getLong("TotalPopulation")), numberFormatter.format(pc), numberFormatter.format(pnc)));
             }
             System.out.println(sb.toString());
@@ -724,7 +736,9 @@ public class App
             Statement stmt = con.createStatement();
             ResultSet rset = stmt.executeQuery(query);
             StringBuilder sb = new StringBuilder();
-            sb.append(String.format("%-30s %-50s %-50s %-30s\n", "Country",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
+            sb.append("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n", "Country",  "Population of People", "People Living In Cities", "People Not Living In Cities"));
+            sb.append("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
             NumberFormat numberFormatter = NumberFormat.getInstance(Locale.US);
 
             while (rset.next())
@@ -741,7 +755,8 @@ public class App
                     pc = rset.getLong("PopulationInCities");
                     pnc = rset.getLong("PopulationNotInCities");
                 }
-                sb.append(String.format("%-30s %-50s %-50s %-30s\n",
+
+                sb.append(String.format("| %-30s | %-50s | %-50s | %-30s |\n",
                         rset.getString("Name"), numberFormatter.format(rset.getLong("TotalPopulation")), numberFormatter.format(pc), numberFormatter.format(pnc)));
             }
             System.out.println(sb.toString());
